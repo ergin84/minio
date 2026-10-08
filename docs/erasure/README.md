@@ -59,7 +59,7 @@ podman run \
   -v /mnt/data6:/data6 \
   -v /mnt/data7:/data7 \
   -v /mnt/data8:/data8 \
-  quay.io/minio/minio server /data{1...8} --console-address ":9001"
+  erginmehmeti/storvia server /data{1...8} --console-address ":9001"
 ```
 
 ### 3. Test your setup
