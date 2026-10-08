@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 ## NOTE
-All GitHub issues are addressed on a best-effort basis. There are no Service Level Agreements (SLA) or Objectives (SLO). Please follow our [Code of Conduct](https://github.com/ergin84/minio/blob/master/code_of_conduct.md) when engaging with maintainers and the community.
+All GitHub issues are addressed on a best-effort basis. There are no Service Level Agreements (SLA) or Objectives (SLO). Please follow our [Code of Conduct](https://github.com/ergin84/storvia/blob/master/code_of_conduct.md) when engaging with maintainers and the community.
  
 <!--- Provide a general summary of the issue in the Title above -->
 
@@ -27,7 +27,7 @@ All GitHub issues are addressed on a best-effort basis. There are no Service Lev
 ## Steps to Reproduce (for bugs)
 <!--- Provide a link to a live example, or an unambiguous set of steps to -->
 <!--- reproduce this bug. Include code to reproduce, if relevant -->
-<!--- and make sure you have followed https://github.com/ergin84/minio/tree/master/docs/debugging to capture relevant logs -->
+<!--- and make sure you have followed https://github.com/ergin84/storvia/tree/master/docs/debugging to capture relevant logs -->
 
 1.
 2.
@@ -44,6 +44,6 @@ All GitHub issues are addressed on a best-effort basis. There are no Service Lev
 
 ## Your Environment
 <!--- Include as many relevant details about the environment you experienced the bug in -->
-* Version used (`minio --version`):
+* Version used (`storvia --version`):
 * Server setup and configuration:
 * Operating System and version (`uname -a`):
