@@ -86,22 +86,22 @@ The following PRs were open when upstream was archived. Evaluated and tracked he
 | [#21560](https://github.com/minio/minio/pull/21560) | jobstoit | fix(docker): cicd image |
 | [#21660](https://github.com/minio/minio/pull/21660) | valesnikov | Fix typo in README build command |
 
-### Helm chart improvements (pending batch merge)
+### Helm chart improvements (merged in `fa16a3c09`)
 
 | PR | Description |
 |---|---|
-| [#21738](https://github.com/minio/minio/pull/21738) | Fix typo in values.yaml: `pof` → `pod` |
-| [#21689](https://github.com/minio/minio/pull/21689) | Add warning when existingClaim is ignored in distributed mode |
-| [#21556](https://github.com/minio/minio/pull/21556) | Allow custom labels on services, service account and PVC |
-| [#21578](https://github.com/minio/minio/pull/21578) | Add option to enable Kubernetes probes |
+| [#21738](https://github.com/minio/minio/pull/21738) | Fix typos: `pof` → `pod`, `Additational` → `Additional` |
+| [#21689](https://github.com/minio/minio/pull/21689) | Warning in NOTES.txt when existingClaim is ignored in distributed mode |
+| [#21556](https://github.com/minio/minio/pull/21556) | Custom labels on Service, ConsoleService, ServiceAccount, PVC, post-job |
+| [#21578](https://github.com/minio/minio/pull/21578) | Liveness / readiness / startup probes (disabled by default) |
 | [#21591](https://github.com/minio/minio/pull/21591) | Move bearerTokenSecret to correct level in Probe spec |
-| [#21245](https://github.com/minio/minio/pull/21245) | Support minAvailable and templated name in PodDisruptionBudget |
-| [#21392](https://github.com/minio/minio/pull/21392) | Add automountServiceAccountToken control |
-| [#21045](https://github.com/minio/minio/pull/21045) | Add domain parameter |
-| [#20853](https://github.com/minio/minio/pull/20853) | Add ability to set ingress pathType |
-| [#20795](https://github.com/minio/minio/pull/20795) | Allow users to set storageClass from global parameters |
-| [#18577](https://github.com/minio/minio/pull/18577) | Add support for only one replica |
-| [#21728](https://github.com/minio/minio/pull/21728) | Make securityContext and SCC optional for OpenShift |
+| [#21245](https://github.com/minio/minio/pull/21245) | PDB supports minAvailable + uses templated name |
+| [#21392](https://github.com/minio/minio/pull/21392) | automountServiceAccountToken control on ServiceAccount |
+| [#21045](https://github.com/minio/minio/pull/21045) | domain parameter appended to all ingress hosts |
+| [#20853](https://github.com/minio/minio/pull/20853) | Configurable ingress pathType (default: Prefix) |
+| [#20795](https://github.com/minio/minio/pull/20795) | global.storageClass parameter overrides persistence.storageClass |
+| [#18577](https://github.com/minio/minio/pull/18577) | Single-replica fix — no invalid `{0...0}` range syntax |
+| [#21728](https://github.com/minio/minio/pull/21728) | OpenShift flag — disables SCC + omits user/group IDs from securityContext |
 
 ### Already merged or superseded
 
