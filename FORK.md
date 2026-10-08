@@ -22,7 +22,7 @@ go install github.com/ergin84/minio@latest
 
 Docker:
 ```sh
-docker pull ergin84/minio:latest
+docker pull erginmehmeti/minio:latest
 ```
 
 ## Maintenance commitment

@@ -33,7 +33,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ergin84/minio
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/minio
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
@@ -58,7 +58,7 @@ jobs:
       - name: Trivy image scan
         uses: aquasecurity/trivy-action@v0.36.0
         with:
-          image-ref: ergin84/minio:latest
+          image-ref: ${{ secrets.DOCKERHUB_USERNAME }}/minio:latest
           format: table
           severity: CRITICAL,HIGH
           ignore-unfixed: true
@@ -85,7 +85,7 @@ jobs:
 
       - uses: actions/setup-go@v5
         with:
-          go-version: 1.25.x
+          go-version: 1.26.x
           check-latest: true
 
       - name: Build ${{ matrix.os }}/${{ matrix.arch }}
@@ -134,11 +134,11 @@ jobs:
             ## Docker image
 
             ```sh
-            docker pull ergin84/minio:${{ github.ref_name }}
+            docker pull erginmehmeti/minio:${{ github.ref_name }}
             ```
 
             Multi-arch: `linux/amd64`, `linux/arm64`.
-            See [Docker Hub](https://hub.docker.com/r/ergin84/minio) for all available tags.
+            See [Docker Hub](https://hub.docker.com/r/erginmehmeti/minio) for all available tags.
 
             ## Install from source
 
