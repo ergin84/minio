@@ -55,14 +55,14 @@ var (
 	// MinioReleaseURL - release URL.
 	MinioReleaseURL = MinioReleaseBaseURL + minioOSARCH + SlashSeparator
 
-	// MinioStoreName - MinIO store name.
-	MinioStoreName = "MinIO"
+	// MinioStoreName - store name used in user-facing messages.
+	MinioStoreName = "Storvia"
 
-	// MinioUAName - MinIO user agent name.
-	MinioUAName = "MinIO"
+	// MinioUAName - user agent name sent in outbound requests.
+	MinioUAName = "Storvia"
 
-	// MinioBannerName - MinIO banner name for startup message.
-	MinioBannerName = "MinIO Object Storage Server"
+	// MinioBannerName - banner printed at server startup.
+	MinioBannerName = "Storvia Object Storage Server"
 
 	// MinioLicense - MinIO server license.
 	MinioLicense = "GNU AGPLv3 - https://www.gnu.org/licenses/agpl-3.0.html"

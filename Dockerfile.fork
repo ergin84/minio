@@ -18,7 +18,7 @@ RUN SHORT_COMMIT=$(echo "${COMMIT}" | cut -c1-12) && \
       -X github.com/ergin84/storvia/cmd.ReleaseTag=${VERSION} \
       -X github.com/ergin84/storvia/cmd.CommitID=${COMMIT} \
       -X github.com/ergin84/storvia/cmd.ShortCommitID=${SHORT_COMMIT}" \
-    -o minio .
+    -o storvia .
 
 FROM debian:bookworm-slim
 
@@ -26,14 +26,16 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
-COPY --from=builder /build/minio /usr/bin/minio
+COPY --from=builder /build/storvia /usr/bin/storvia
+# Compatibility symlink so tools that call "minio" directly continue to work.
+RUN ln -s /usr/bin/storvia /usr/bin/minio
 COPY dockerscripts/docker-entrypoint.sh /usr/bin/docker-entrypoint.sh
 
-RUN chmod +x /usr/bin/minio /usr/bin/docker-entrypoint.sh
+RUN chmod +x /usr/bin/storvia /usr/bin/docker-entrypoint.sh
 
 EXPOSE 9000 9001
 
 VOLUME ["/data"]
 
 ENTRYPOINT ["/usr/bin/docker-entrypoint.sh"]
-CMD ["minio"]
+CMD ["storvia"]

@@ -1,11 +1,18 @@
 #!/bin/sh
 #
 
-# If command starts with an option, prepend minio.
-if [ "${1}" != "minio" ]; then
+# If command starts with an option, prepend storvia.
+# Also accept legacy "minio" as the command name for backwards compatibility.
+if [ "${1}" != "storvia" ] && [ "${1}" != "minio" ]; then
 	if [ -n "${1}" ]; then
-		set -- minio "$@"
+		set -- storvia "$@"
 	fi
+fi
+
+# Normalize legacy "minio" invocation to "storvia".
+if [ "${1}" = "minio" ]; then
+	shift
+	set -- storvia "$@"
 fi
 
 docker_switch_user() {
