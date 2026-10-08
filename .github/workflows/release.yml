@@ -8,7 +8,7 @@ on:
 
 permissions:
   contents: write   # create GitHub release
-  packages: write   # push to GHCR if needed in future
+  packages: write   # push Helm chart to GHCR
 
 jobs:
   docker:
@@ -111,9 +111,28 @@ jobs:
           name: minio-${{ matrix.os }}-${{ matrix.arch }}
           path: minio-${{ matrix.os }}-${{ matrix.arch }}*
 
+  helm:
+    name: Publish Helm chart to GHCR
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Helm
+        uses: azure/setup-helm@v4
+
+      - name: Log in to GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | helm registry login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Package and push chart
+        run: |
+          VERSION="${{ github.ref_name }}"
+          VERSION="${VERSION#v}"
+          helm package helm/minio --version "$VERSION" --app-version "$VERSION"
+          helm push "minio-${VERSION}.tgz" oci://ghcr.io/${{ github.repository_owner }}
+
   github-release:
     name: Create GitHub release
-    needs: [docker, binaries]
+    needs: [docker, binaries, helm]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -139,6 +158,12 @@ jobs:
 
             Multi-arch: `linux/amd64`, `linux/arm64`.
             See [Docker Hub](https://hub.docker.com/r/erginmehmeti/minio) for all available tags.
+
+            ## Helm chart
+
+            ```sh
+            helm install minio oci://ghcr.io/ergin84/minio --version ${{ github.ref_name }}
+            ```
 
             ## Install from source
 
