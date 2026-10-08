@@ -19,6 +19,8 @@ package target
 
 import (
 	"context"
+	"crypto/tls"
+	"crypto/x509"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -41,18 +43,27 @@ type AMQPArgs struct {
 	Enable            bool        `json:"enable"`
 	URL               amqp091.URI `json:"url"`
 	Exchange          string      `json:"exchange"`
+	Queue             string      `json:"queue"`
 	RoutingKey        string      `json:"routingKey"`
 	ExchangeType      string      `json:"exchangeType"`
+	QueueType         string      `json:"queueType"`
 	DeliveryMode      uint8       `json:"deliveryMode"`
 	Mandatory         bool        `json:"mandatory"`
 	Immediate         bool        `json:"immediate"`
 	Durable           bool        `json:"durable"`
 	Internal          bool        `json:"internal"`
 	NoWait            bool        `json:"noWait"`
+	Exclusive         bool        `json:"exclusive"`
 	AutoDeleted       bool        `json:"autoDeleted"`
 	PublisherConfirms bool        `json:"publisherConfirms"`
 	QueueDir          string      `json:"queueDir"`
 	QueueLimit        uint64      `json:"queueLimit"`
+	TLS               struct {
+		RootCAs       *x509.CertPool `json:"-"`
+		SkipVerify    bool           `json:"skipVerify"`
+		ClientTLSCert string         `json:"clientTLSCert"`
+		ClientTLSKey  string         `json:"clientTLSKey"`
+	} `json:"tls"`
 }
 
 // AMQP input constants.
@@ -66,30 +77,42 @@ const (
 
 	AmqpURL               = "url"
 	AmqpExchange          = "exchange"
+	AmqpQueue             = "queue"
 	AmqpRoutingKey        = "routing_key"
 	AmqpExchangeType      = "exchange_type"
+	AmqpQueueType         = "queue_type"
 	AmqpDeliveryMode      = "delivery_mode"
 	AmqpMandatory         = "mandatory"
 	AmqpImmediate         = "immediate"
 	AmqpDurable           = "durable"
 	AmqpInternal          = "internal"
 	AmqpNoWait            = "no_wait"
+	AmqpExclusive         = "exclusive"
 	AmqpAutoDeleted       = "auto_deleted"
+	AmqpTLSSkipVerify     = "tls_skip_verify"
+	AmqpClientTLSCert     = "client_tls_cert"
+	AmqpClientTLSKey      = "client_tls_key"
 	AmqpArguments         = "arguments"
 	AmqpPublisherConfirms = "publisher_confirms"
 
 	EnvAMQPEnable            = "MINIO_NOTIFY_AMQP_ENABLE"
 	EnvAMQPURL               = "MINIO_NOTIFY_AMQP_URL"
 	EnvAMQPExchange          = "MINIO_NOTIFY_AMQP_EXCHANGE"
+	EnvAMQPQueue             = "MINIO_NOTIFY_AMQP_QUEUE"
 	EnvAMQPRoutingKey        = "MINIO_NOTIFY_AMQP_ROUTING_KEY"
 	EnvAMQPExchangeType      = "MINIO_NOTIFY_AMQP_EXCHANGE_TYPE"
+	EnvAMQPQueueType         = "MINIO_NOTIFY_AMQP_QUEUE_TYPE"
 	EnvAMQPDeliveryMode      = "MINIO_NOTIFY_AMQP_DELIVERY_MODE"
 	EnvAMQPMandatory         = "MINIO_NOTIFY_AMQP_MANDATORY"
 	EnvAMQPImmediate         = "MINIO_NOTIFY_AMQP_IMMEDIATE"
 	EnvAMQPDurable           = "MINIO_NOTIFY_AMQP_DURABLE"
 	EnvAMQPInternal          = "MINIO_NOTIFY_AMQP_INTERNAL"
 	EnvAMQPNoWait            = "MINIO_NOTIFY_AMQP_NO_WAIT"
+	EnvAMQPExclusive         = "MINIO_NOTIFY_AMQP_EXCLUSIVE"
 	EnvAMQPAutoDeleted       = "MINIO_NOTIFY_AMQP_AUTO_DELETED"
+	EnvAMQPTLSSkipVerify     = "MINIO_NOTIFY_AMQP_TLS_SKIP_VERIFY"
+	EnvAMQPClientTLSCert     = "MINIO_NOTIFY_AMQP_CLIENT_TLS_CERT"
+	EnvAMQPClientTLSKey      = "MINIO_NOTIFY_AMQP_CLIENT_TLS_KEY"
 	EnvAMQPArguments         = "MINIO_NOTIFY_AMQP_ARGUMENTS"
 	EnvAMQPPublisherConfirms = "MINIO_NOTIFY_AMQP_PUBLISHING_CONFIRMS"
 	EnvAMQPQueueDir          = "MINIO_NOTIFY_AMQP_QUEUE_DIR"
@@ -204,7 +227,26 @@ func (target *AMQPTarget) channel() (*amqp091.Channel, chan amqp091.Confirmation
 		target.conn.Close()
 	}
 
-	conn, err = amqp091.Dial(target.args.URL.String())
+	if target.args.TLS.ClientTLSCert != "" && target.args.TLS.ClientTLSKey != "" {
+		cert, err := tls.LoadX509KeyPair(target.args.TLS.ClientTLSCert, target.args.TLS.ClientTLSKey)
+		if err != nil {
+			return nil, nil, err
+		}
+		tlsCfg := &tls.Config{
+			RootCAs:            target.args.TLS.RootCAs,
+			InsecureSkipVerify: target.args.TLS.SkipVerify,
+			Certificates:       []tls.Certificate{cert},
+		}
+		conn, err = amqp091.DialTLS(target.args.URL.String(), tlsCfg)
+	} else if target.args.TLS.SkipVerify || target.args.TLS.RootCAs != nil {
+		tlsCfg := &tls.Config{
+			RootCAs:            target.args.TLS.RootCAs,
+			InsecureSkipVerify: target.args.TLS.SkipVerify,
+		}
+		conn, err = amqp091.DialTLS(target.args.URL.String(), tlsCfg)
+	} else {
+		conn, err = amqp091.Dial(target.args.URL.String())
+	}
 	if err != nil {
 		if xnet.IsConnRefusedErr(err) {
 			return nil, nil, store.ErrNotConnected
