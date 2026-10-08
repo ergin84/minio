@@ -75,16 +75,9 @@ The following PRs were open when upstream was archived. Evaluated and tracked he
 
 ### Pending evaluation
 
-| PR | Author | Description |
+| PR | Description | Status |
 |---|---|---|
-| [#21664](https://github.com/minio/minio/pull/21664) | dormanze | AMQP notifications support TLS |
-| [#21393](https://github.com/minio/minio/pull/21393) | feat: make minimum part size configurable via env var |
-| [#20784](https://github.com/minio/minio/pull/20784) | allanrogerr | Add SiteName to internal and external audit logs |
-| [#21492](https://github.com/minio/minio/pull/21492) | dormanze | Add disable-ssl flag for bucket replication |
-| [#21255](https://github.com/minio/minio/pull/21255) | cmyrsh | Feature: STS SAN URI |
-| [#21585](https://github.com/minio/minio/pull/21585) | mannreis | Tests: federation functional tests |
-| [#21560](https://github.com/minio/minio/pull/21560) | jobstoit | fix(docker): cicd image |
-| [#21660](https://github.com/minio/minio/pull/21660) | valesnikov | Fix typo in README build command |
+| [#21492](https://github.com/minio/minio/pull/21492) | Add disable-ssl flag for bucket replication | Blocked — needs madmin-go v3.0.111 (latest stable: v3.0.110) |
 
 ### Helm chart improvements (merged in `fa16a3c09`)
 
@@ -103,6 +96,16 @@ The following PRs were open when upstream was archived. Evaluated and tracked he
 | [#18577](https://github.com/minio/minio/pull/18577) | Single-replica fix — no invalid `{0...0}` range syntax |
 | [#21728](https://github.com/minio/minio/pull/21728) | OpenShift flag — disables SCC + omits user/group IDs from securityContext |
 
+### Applied from pending evaluation (merged in `51417d00d`)
+
+| PR | Author | Description |
+|---|---|---|
+| [#20784](https://github.com/minio/minio/pull/20784) | allanrogerr | Add SiteName to internal and external audit logs |
+| [#21393](https://github.com/minio/minio/pull/21393) | dormanze | Make minimum part size configurable via `MINIO_MIN_PART_SIZE` env var |
+| [#21664](https://github.com/minio/minio/pull/21664) | dormanze | AMQP notifications support TLS/mTLS |
+| [#21255](https://github.com/minio/minio/pull/21255) | cmyrsh | STS X.509 authentication: use SAN URI instead of Common Name |
+| [#21585](https://github.com/minio/minio/pull/21585) | mannreis | Federation functional test suite + Makefile `test-federation` target |
+
 ### Already merged or superseded
 
 | PR | Status |
@@ -111,6 +114,8 @@ The following PRs were open when upstream was archived. Evaluated and tracked he
 | [#21749](https://github.com/minio/minio/pull/21749) / [#21748](https://github.com/minio/minio/pull/21748) / [#21750](https://github.com/minio/minio/pull/21750) / [#21751](https://github.com/minio/minio/pull/21751) / [#21713](https://github.com/minio/minio/pull/21713) | Merged via dep update |
 | [#21739](https://github.com/minio/minio/pull/21739) | Superseded — workflows replaced entirely |
 | [#21580](https://github.com/minio/minio/pull/21580) / [#21742](https://github.com/minio/minio/pull/21742) / [#21391](https://github.com/minio/minio/pull/21391) / [#21482](https://github.com/minio/minio/pull/21482) / [#21501](https://github.com/minio/minio/pull/21501) | Cherry-picked |
+| [#21560](https://github.com/minio/minio/pull/21560) | Superseded — upstream release script, not applicable to fork's release pipeline |
+| [#21660](https://github.com/minio/minio/pull/21660) | Superseded — README typo already correct in fork |
 
 ## How to contribute
 
