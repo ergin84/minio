@@ -32,15 +32,15 @@ import (
 	"github.com/dustin/go-humanize"
 	"github.com/minio/minio-go/v7/pkg/s3utils"
 	"github.com/minio/minio-go/v7/pkg/set"
-	"github.com/ergin84/minio/internal/grid"
+	"github.com/ergin84/storvia/internal/grid"
 	xnet "github.com/minio/pkg/v3/net"
 
-	"github.com/ergin84/minio/internal/amztime"
-	"github.com/ergin84/minio/internal/config/dns"
-	"github.com/ergin84/minio/internal/crypto"
-	xhttp "github.com/ergin84/minio/internal/http"
-	"github.com/ergin84/minio/internal/logger"
-	"github.com/ergin84/minio/internal/mcontext"
+	"github.com/ergin84/storvia/internal/amztime"
+	"github.com/ergin84/storvia/internal/config/dns"
+	"github.com/ergin84/storvia/internal/crypto"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	"github.com/ergin84/storvia/internal/logger"
+	"github.com/ergin84/storvia/internal/mcontext"
 )
 
 const (

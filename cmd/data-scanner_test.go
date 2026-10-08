@@ -27,12 +27,12 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/ergin84/minio/internal/amztime"
-	"github.com/ergin84/minio/internal/bucket/lifecycle"
-	objectlock "github.com/ergin84/minio/internal/bucket/object/lock"
-	"github.com/ergin84/minio/internal/bucket/replication"
-	"github.com/ergin84/minio/internal/bucket/versioning"
-	xhttp "github.com/ergin84/minio/internal/http"
+	"github.com/ergin84/storvia/internal/amztime"
+	"github.com/ergin84/storvia/internal/bucket/lifecycle"
+	objectlock "github.com/ergin84/storvia/internal/bucket/object/lock"
+	"github.com/ergin84/storvia/internal/bucket/replication"
+	"github.com/ergin84/storvia/internal/bucket/versioning"
+	xhttp "github.com/ergin84/storvia/internal/http"
 )
 
 func TestApplyNewerNoncurrentVersionsLimit(t *testing.T) {

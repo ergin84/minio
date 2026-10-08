@@ -23,7 +23,7 @@ import (
 	"hash"
 	"io"
 
-	"github.com/ergin84/minio/internal/ioutil"
+	"github.com/ergin84/storvia/internal/ioutil"
 )
 
 // Checker allows to verify the checksum of a reader.

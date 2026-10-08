@@ -34,8 +34,8 @@ import (
 	"github.com/minio/madmin-go/v3"
 	"github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/credentials"
-	"github.com/ergin84/minio/internal/auth"
-	xioutil "github.com/ergin84/minio/internal/ioutil"
+	"github.com/ergin84/storvia/internal/auth"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
 	"github.com/minio/pkg/v3/mimedb"
 	ftp "goftp.io/server/v2"
 )

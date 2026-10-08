@@ -117,8 +117,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ergin84/minio/internal/hash/sha256"
-	xhttp "github.com/ergin84/minio/internal/http"
+	"github.com/ergin84/storvia/internal/hash/sha256"
+	xhttp "github.com/ergin84/storvia/internal/http"
 	"github.com/minio/sio"
 )
 

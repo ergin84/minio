@@ -32,13 +32,13 @@ import (
 	"github.com/dustin/go-humanize"
 	"github.com/lithammer/shortuuid/v4"
 	"github.com/minio/madmin-go/v3"
-	"github.com/ergin84/minio/internal/bucket/lifecycle"
-	objectlock "github.com/ergin84/minio/internal/bucket/object/lock"
-	"github.com/ergin84/minio/internal/bucket/replication"
-	"github.com/ergin84/minio/internal/bucket/versioning"
-	"github.com/ergin84/minio/internal/hash"
-	xioutil "github.com/ergin84/minio/internal/ioutil"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/bucket/lifecycle"
+	objectlock "github.com/ergin84/storvia/internal/bucket/object/lock"
+	"github.com/ergin84/storvia/internal/bucket/replication"
+	"github.com/ergin84/storvia/internal/bucket/versioning"
+	"github.com/ergin84/storvia/internal/hash"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
+	"github.com/ergin84/storvia/internal/logger"
 	"github.com/minio/pkg/v3/env"
 	"github.com/minio/pkg/v3/workers"
 )
@@ -173,7 +173,7 @@ func (z *erasureServerPools) initRebalanceMeta(ctx context.Context, buckets []st
 	for _, disk := range si.Disks {
 		// Ignore invalid.
 		if disk.PoolIndex < 0 || len(diskStats) <= disk.PoolIndex {
-			// https://github.com/ergin84/minio/issues/16500
+			// https://github.com/ergin84/storvia/issues/16500
 			continue
 		}
 		totalCap += disk.TotalSpace

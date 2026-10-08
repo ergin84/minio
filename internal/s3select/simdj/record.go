@@ -22,9 +22,9 @@ import (
 	"io"
 
 	csv "github.com/minio/csvparser"
-	"github.com/ergin84/minio/internal/s3select/json"
-	"github.com/ergin84/minio/internal/s3select/jstream"
-	"github.com/ergin84/minio/internal/s3select/sql"
+	"github.com/ergin84/storvia/internal/s3select/json"
+	"github.com/ergin84/storvia/internal/s3select/jstream"
+	"github.com/ergin84/storvia/internal/s3select/sql"
 	"github.com/minio/simdjson-go"
 )
 

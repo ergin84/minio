@@ -28,8 +28,8 @@ import (
 	"time"
 
 	"github.com/dustin/go-humanize"
-	xhttp "github.com/ergin84/minio/internal/http"
-	"github.com/ergin84/minio/internal/logger"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	"github.com/ergin84/storvia/internal/logger"
 )
 
 var printEndpointError = func() func(Endpoint, error, bool) {
@@ -116,7 +116,7 @@ func bgFormatErasureCleanupTmp(diskPath string) {
 // migration failed to capture '.This' field properly which indicates
 // the disk UUID association. Below error message is returned when
 // we see this situation in format.json, for more info refer
-// https://github.com/ergin84/minio/issues/5667
+// https://github.com/ergin84/storvia/issues/5667
 var errErasureV3ThisEmpty = fmt.Errorf("Erasure format version 3 has This field empty")
 
 // isServerResolvable - checks if the endpoint is resolvable

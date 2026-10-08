@@ -23,4 +23,4 @@ contributions to the project maintainers under the Apache 2 license.
 - [ ] Fixes a regression (If yes, please add `commit-id` or `PR #` here)
 - [ ] Unit tests added/updated
 - [ ] Internal documentation updated
-- [ ] Create a documentation update request [here](https://github.com/ergin84/minio/issues/new?title=Doc+Update+Needed+For+PR+NNNNN)
+- [ ] Create a documentation update request [here](https://github.com/ergin84/storvia/issues/new?title=Doc+Update+Needed+For+PR+NNNNN)

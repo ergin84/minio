@@ -21,8 +21,8 @@ import (
 	"context"
 	"errors"
 
-	"github.com/ergin84/minio/internal/dsync"
-	"github.com/ergin84/minio/internal/grid"
+	"github.com/ergin84/storvia/internal/dsync"
+	"github.com/ergin84/storvia/internal/grid"
 )
 
 // lockRESTClient is authenticable lock REST client

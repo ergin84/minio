@@ -27,9 +27,9 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/ergin84/minio/internal/bucket/object/lock"
-	"github.com/ergin84/minio/internal/bucket/replication"
-	xhttp "github.com/ergin84/minio/internal/http"
+	"github.com/ergin84/storvia/internal/bucket/object/lock"
+	"github.com/ergin84/storvia/internal/bucket/replication"
+	xhttp "github.com/ergin84/storvia/internal/http"
 )
 
 var (

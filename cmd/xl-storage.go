@@ -42,14 +42,14 @@ import (
 	jsoniter "github.com/json-iterator/go"
 	"github.com/klauspost/filepathx"
 	"github.com/minio/madmin-go/v3"
-	"github.com/ergin84/minio/internal/bucket/lifecycle"
-	"github.com/ergin84/minio/internal/bucket/replication"
-	"github.com/ergin84/minio/internal/cachevalue"
-	"github.com/ergin84/minio/internal/config/storageclass"
+	"github.com/ergin84/storvia/internal/bucket/lifecycle"
+	"github.com/ergin84/storvia/internal/bucket/replication"
+	"github.com/ergin84/storvia/internal/cachevalue"
+	"github.com/ergin84/storvia/internal/config/storageclass"
 
-	"github.com/ergin84/minio/internal/disk"
-	xioutil "github.com/ergin84/minio/internal/ioutil"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/disk"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
+	"github.com/ergin84/storvia/internal/logger"
 	"github.com/pkg/xattr"
 )
 

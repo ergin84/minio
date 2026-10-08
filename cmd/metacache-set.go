@@ -34,12 +34,12 @@ import (
 	"time"
 
 	jsoniter "github.com/json-iterator/go"
-	"github.com/ergin84/minio/internal/bucket/lifecycle"
-	"github.com/ergin84/minio/internal/bucket/object/lock"
-	"github.com/ergin84/minio/internal/bucket/versioning"
-	"github.com/ergin84/minio/internal/color"
-	"github.com/ergin84/minio/internal/hash"
-	xioutil "github.com/ergin84/minio/internal/ioutil"
+	"github.com/ergin84/storvia/internal/bucket/lifecycle"
+	"github.com/ergin84/storvia/internal/bucket/object/lock"
+	"github.com/ergin84/storvia/internal/bucket/versioning"
+	"github.com/ergin84/storvia/internal/color"
+	"github.com/ergin84/storvia/internal/hash"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
 	"github.com/minio/pkg/v3/console"
 )
 

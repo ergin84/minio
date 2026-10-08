@@ -25,8 +25,8 @@ import (
 	"time"
 
 	"github.com/minio/madmin-go/v3"
-	"github.com/ergin84/minio/internal/disk"
-	"github.com/ergin84/minio/internal/net"
+	"github.com/ergin84/storvia/internal/disk"
+	"github.com/ergin84/storvia/internal/net"
 	c "github.com/shirou/gopsutil/v3/cpu"
 	"github.com/shirou/gopsutil/v3/load"
 )

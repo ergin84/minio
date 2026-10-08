@@ -1,166 +1,202 @@
 > [!NOTE]
-> **This is a community-maintained fork of [minio/minio](https://github.com/minio/minio).**
-> The upstream project stopped active maintenance of the open-source edition and transitioned to a commercial product (AIStor).
-> This fork keeps the AGPLv3 community edition alive with security patches and bug fixes.
-> Issues and contributions are welcome at [ergin84/minio](https://github.com/ergin84/minio/issues).
+> **Storvia is an independent fork of [minio/minio](https://github.com/minio/minio) (archived April 2026).**
+> It is not affiliated with or endorsed by MinIO, Inc.
+> Issues and contributions are welcome at [ergin84/storvia](https://github.com/ergin84/storvia/issues).
 
 ---
 
-# MinIO Quickstart Guide
+# Storvia
 
-[![Issues](https://img.shields.io/github/issues/ergin84/minio)](https://github.com/ergin84/minio/issues) [![Docker Pulls](https://img.shields.io/docker/pulls/erginmehmeti/minio.svg?maxAge=604800)](https://hub.docker.com/r/erginmehmeti/minio) [![license](https://img.shields.io/badge/license-AGPL%20V3-blue)](https://github.com/ergin84/minio/blob/master/LICENSE)
+**Open Source S3-Compatible Object Storage**
 
-[![MinIO](https://raw.githubusercontent.com/minio/minio/master/.github/logo.svg?sanitize=true)](https://github.com/ergin84/minio)
+[![Issues](https://img.shields.io/github/issues/ergin84/storvia)](https://github.com/ergin84/storvia/issues)
+[![Docker Pulls](https://img.shields.io/docker/pulls/erginmehmeti/storvia.svg?maxAge=604800)](https://hub.docker.com/r/erginmehmeti/storvia)
+[![license](https://img.shields.io/badge/license-AGPL%20V3-blue)](https://github.com/ergin84/storvia/blob/master/LICENSE)
 
-MinIO is a high-performance, S3-compatible object storage solution released under the GNU AGPL v3.0 license.
-Designed for speed and scalability, it powers AI/ML, analytics, and data-intensive workloads with industry-leading performance.
+![Storvia](.github/logo.png)
 
-- S3 API Compatible – Seamless integration with existing S3 tools
-- Built for AI & Analytics – Optimized for large-scale data pipelines
-- High Performance – Ideal for demanding storage workloads.
+Storvia is a community-maintained object storage server based on the open-source MinIO codebase.
+It provides S3-compatible storage with continuing community-driven maintenance, security updates, bug fixes, and improvements.
 
-This README provides instructions for building MinIO from source and deploying onto baremetal hardware.
-Use the [MinIO Documentation](https://github.com/minio/docs) project to build and host a local copy of the documentation.
+Storvia is an independent project and is **not affiliated with or endorsed by MinIO, Inc.**
 
-## MinIO is Open Source Software
+- **S3 API Compatible** — works with all S3-compatible tools and SDKs
+- **Drop-in replacement** — compatible with existing MinIO data directories and credentials
+- **Active maintenance** — security patches, dependency updates, and community bug fixes
+- **Multi-architecture** — Linux amd64 and arm64 binaries and Docker images
 
-MinIO is released under the GNU AGPLv3 license. The community is welcome to remix, redesign, and reshare MinIO under those terms.
+---
 
-All usage in your application stack requires validation against AGPLv3 obligations, which include but are not limited to the release of modified source code to the community. Any commercial/proprietary usage is done at your own risk.
+## Quick Start
 
-Support is provided on a best-effort basis through [GitHub Issues](https://github.com/ergin84/minio/issues). All contributors are welcome.
-
-## Source-Only Distribution
-
-**Important:** The MinIO community edition is now distributed as source code only. We will no longer provide pre-compiled binary releases for the community version.
-
-### Installing Latest MinIO Community Edition
-
-To use MinIO community edition, you have two options:
-
-1. **Install from source** using `go install github.com/ergin84/minio@latest` (recommended)
-2. **Build a Docker image** from the provided Dockerfile
-
-See the sections below for detailed instructions on each method.
-
-### Legacy Binary Releases
-
-Historical pre-compiled binary releases remain available for reference but are no longer maintained:
-
-- GitHub Releases: https://github.com/minio/minio/releases
-- Direct downloads: https://dl.min.io/server/minio/release/
-
-**These legacy binaries will not receive updates.** We strongly recommend using source builds for access to the latest features, bug fixes, and security updates.
-
-## Install from Source
-
-Use the following commands to compile and run a standalone MinIO server from source.
-If you do not have a working Golang environment, please follow [How to install Golang](https://golang.org/doc/install). Minimum version required is [go1.24](https://golang.org/dl/#stable)
+### Docker (recommended)
 
 ```sh
-go install github.com/ergin84/minio@latest
+docker run -d \
+  --name storvia \
+  -p 9000:9000 \
+  -p 9001:9001 \
+  -e MINIO_ROOT_USER=admin \
+  -e MINIO_ROOT_PASSWORD=change-this-password \
+  -v storvia-data:/data \
+  erginmehmeti/storvia:latest \
+  server /data --console-address ":9001"
 ```
 
-You can alternatively run `go build` and use the `GOOS` and `GOARCH` environment variables to control the OS and architecture target.
-For example:
+Then open the web console at <http://localhost:9001>.
 
-```
-env GOOS=linux GOARCH=arm64 go build
-```
+### Install from source
 
-Start MinIO by running `minio server PATH` where `PATH` is any empty folder on your local filesystem.
-
-The MinIO deployment starts using default root credentials `minioadmin:minioadmin`.
-You can test the deployment using the MinIO Console, an embedded web-based object browser built into MinIO Server.
-Point a web browser running on the host machine to <http://127.0.0.1:9000> and log in with the root credentials.
-You can use the Browser to create buckets, upload objects, and browse the contents of the MinIO server.
-
-You can also connect using any S3-compatible tool, such as the MinIO Client `mc` commandline tool:
+Requires [Go 1.26+](https://golang.org/dl/#stable).
 
 ```sh
-mc alias set local http://localhost:9000 minioadmin minioadmin
-mc admin info local
+go install github.com/ergin84/storvia@latest
+storvia server /data --console-address ":9001"
 ```
 
-See [Test using MinIO Client `mc`](#test-using-minio-client-mc) for more information on using the `mc` commandline tool.
-For application developers, see <https://docs.min.io/enterprise/aistor-object-store/developers/sdk/> to view MinIO SDKs for supported languages.
+### Pre-built binaries
 
-> [!NOTE]
-> Production environments using compiled-from-source MinIO binaries do so at their own risk.
-> The AGPLv3 license provides no warranties nor liabilities for any such usage.
+Download from [GitHub Releases](https://github.com/ergin84/storvia/releases):
 
-## Build Docker Image
+| Platform | Architecture | Download |
+|---|---|---|
+| Linux | amd64 | `storvia-linux-amd64` |
+| Linux | arm64 | `storvia-linux-arm64` |
+| macOS | amd64 | `storvia-darwin-amd64` |
+| macOS | arm64 | `storvia-darwin-arm64` |
+| Windows | amd64 | `storvia-windows-amd64.exe` |
 
-You can use the `docker build .` command to build a Docker image on your local host machine.
-You must first [build MinIO](#install-from-source) and ensure the `minio` binary exists in the project root.
+Verify checksums with the accompanying `checksums.sha256` file.
 
-The following command builds the Docker image using the default `Dockerfile` in the root project directory with the repository and image tag `myminio:minio`
+---
+
+## Features
+
+- **S3 API** — full compatibility with Amazon S3 object storage operations
+- **Erasure coding** — data protection across single and distributed deployments
+- **IAM** — users, groups, policies, service accounts
+- **Bucket policies** — fine-grained access control
+- **Versioning** — object version history
+- **Replication** — site-to-site and bucket-level replication
+- **Encryption** — server-side encryption with KMS integration
+- **Object lifecycle** — expiration and tiering rules
+- **Multipart uploads** — large object support
+- **FTP/SFTP** — optional file transfer protocol access
+- **Prometheus metrics** — built-in observability
+
+---
+
+## Kubernetes / Helm
+
+Install the Storvia Helm chart from the OCI registry:
 
 ```sh
-docker build -t myminio:minio .
+helm install storvia \
+  oci://ghcr.io/ergin84/storvia \
+  --version <version> \
+  --namespace storvia \
+  --create-namespace \
+  --set rootUser=admin \
+  --set rootPassword=change-this-password
 ```
 
-Use `docker image ls` to confirm the image exists in your local repository.
-You can run the server using standard Docker invocation:
+See [`helm/storvia/`](helm/storvia/) for chart documentation and configuration options.
+
+**Migrating an existing `helm/minio` installation?** See [MIGRATION.md](MIGRATION.md).
+
+---
+
+## Configuration
+
+Storvia uses the same environment variables as upstream MinIO. These are preserved for full backwards compatibility.
+
+| Variable | Description |
+|---|---|
+| `MINIO_ROOT_USER` | Root user name (default: `minioadmin`) |
+| `MINIO_ROOT_PASSWORD` | Root password (default: `minioadmin`) |
+| `MINIO_VOLUMES` | Storage path(s) |
+| `MINIO_SERVER_URL` | Public server URL |
+| `MINIO_BROWSER_REDIRECT_URL` | Console redirect URL |
+
+All `MINIO_*` variables accepted by upstream MinIO continue to work unchanged.
+
+---
+
+## Compatibility
+
+Storvia is designed as a **drop-in replacement** for community edition MinIO.
+
+- Existing data directories are read without migration
+- Existing `MINIO_*` environment variables are honoured
+- Existing S3 API clients continue to work without changes
+- Existing bucket policies, IAM users, and credentials are preserved
+- The `minio` binary symlink is included in the container image for backwards compatibility
+
+> **On-disk format identifiers** (`.minio.sys`, `xl.meta`, `format.json`) are intentionally unchanged to ensure data compatibility.
+
+---
+
+## Migration from MinIO
+
+### From `erginmehmeti/minio` or upstream `minio/minio`
+
+1. Stop the existing container or binary.
+2. Your data volume requires no changes.
+3. Replace the image name with `erginmehmeti/storvia`:
 
 ```sh
-docker run -p 9000:9000 -p 9001:9001 myminio:minio server /tmp/minio --console-address :9001
+docker run -d \
+  --name storvia \
+  -p 9000:9000 \
+  -p 9001:9001 \
+  -e MINIO_ROOT_USER=<your-existing-root-user> \
+  -e MINIO_ROOT_PASSWORD=<your-existing-root-password> \
+  -v <your-existing-volume>:/data \
+  erginmehmeti/storvia:latest \
+  server /data --console-address ":9001"
 ```
 
-Complete documentation for building Docker containers, managing custom images, or loading images into orchestration platforms is out of scope for this documentation.
-You can modify the `Dockerfile` and `dockerscripts/docker-entrypoint.sh` as-needed to reflect your specific image requirements.
+4. Verify with `mc admin info local`.
 
-See the [MinIO Container](https://docs.min.io/community/minio-object-store/operations/deployments/baremetal-deploy-minio-as-a-container.html#deploy-minio-container) documentation for more guidance on running MinIO within a Container image.
+See [MIGRATION.md](MIGRATION.md) for detailed instructions including Helm and Kubernetes migrations.
 
-## Install using Helm Charts
+---
 
-There are two paths for installing MinIO onto Kubernetes infrastructure:
-
-- Use the [MinIO Operator](https://github.com/minio/operator)
-- Use the community-maintained [Helm charts](https://github.com/minio/minio/tree/master/helm/minio)
-
-See the [MinIO Documentation](https://docs.min.io/community/minio-object-store/operations/deployments/kubernetes.html) for guidance on deploying using the Operator.
-The Community Helm chart has instructions in the folder-level README.
-
-## Test MinIO Connectivity
-
-### Test using MinIO Console
-
-MinIO Server comes with an embedded web based object browser.
-Point your web browser to <http://127.0.0.1:9000> to ensure your server has started successfully.
-
-> [!NOTE]
-> MinIO runs console on random port by default, if you wish to choose a specific port use `--console-address` to pick a specific interface and port.
-
-### Test using MinIO Client `mc`
-
-`mc` provides a modern alternative to UNIX commands like ls, cat, cp, mirror, diff etc. It supports filesystems and Amazon S3 compatible cloud storage services.
-
-The following commands set a local alias, validate the server information, create a bucket, copy data to that bucket, and list the contents of the bucket.
+## Building from source
 
 ```sh
-mc alias set local http://localhost:9000 minioadmin minioadmin
-mc admin info
-mc mb data
-mc cp ~/Downloads/mydata data/
-mc ls data/
+git clone https://github.com/ergin84/storvia.git
+cd storvia
+make build
+./storvia server /tmp/test-data --console-address ":9001"
 ```
 
-Follow the MinIO Client [Quickstart Guide](https://docs.min.io/community/minio-object-store/reference/minio-mc.html#quickstart) for further instructions.
+---
 
-## Explore Further
+## Security
 
-- [MinIO Erasure Code Overview](https://min.io/docs/minio/linux/operations/concepts/erasure-coding.html)
-- [Use `mc` with MinIO Server](https://min.io/docs/minio/linux/reference/minio-mc.html)
-- [Use `minio-go` SDK with MinIO Server](https://github.com/minio/minio-go)
+Security bugs should be reported by email to **erginmehmeti@gmail.com**.
+See [SECURITY.md](SECURITY.md) for the full disclosure policy.
 
-## Contribute
+---
 
-Please follow the [Contributor's Guide](https://github.com/ergin84/minio/blob/master/CONTRIBUTING.md) for guidance on making new contributions to this repository.
-Issues and pull requests are welcome at [github.com/ergin84/minio](https://github.com/ergin84/minio).
+## Contributing
 
-## License
+Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-- Source is licensed under the [GNU AGPLv3](https://github.com/ergin84/minio/blob/master/LICENSE).
-- [Documentation](https://github.com/ergin84/minio/tree/master/docs) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
-- [License Compliance](https://github.com/ergin84/minio/blob/master/COMPLIANCE.md)
+---
+
+## Support
+
+Support is provided on a best-effort basis through [GitHub Issues](https://github.com/ergin84/storvia/issues).
+There are no SLAs or commercial support offerings at this time.
+
+---
+
+## License and Attribution
+
+- Source code is licensed under the [GNU AGPLv3](LICENSE).
+- Storvia is based on [minio/minio](https://github.com/minio/minio), originally developed by MinIO, Inc.
+- MinIO is a trademark of MinIO, Inc. Storvia is an independent community project and is not affiliated with MinIO, Inc.
+- [Documentation](docs/) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+- See [CREDITS](CREDITS) and [NOTICE](NOTICE) for third-party acknowledgements.

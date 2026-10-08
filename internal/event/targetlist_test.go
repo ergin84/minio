@@ -24,7 +24,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ergin84/minio/internal/store"
+	"github.com/ergin84/storvia/internal/store"
 )
 
 type ExampleTarget struct {

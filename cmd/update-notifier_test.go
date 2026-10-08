@@ -23,7 +23,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ergin84/minio/internal/color"
+	"github.com/ergin84/storvia/internal/color"
 )
 
 // Tests update notifier string builder.

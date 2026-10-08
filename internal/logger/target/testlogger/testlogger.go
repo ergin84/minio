@@ -35,8 +35,8 @@ import (
 	"testing"
 
 	"github.com/minio/madmin-go/v3/logger/log"
-	"github.com/ergin84/minio/internal/logger"
-	types "github.com/ergin84/minio/internal/logger/target/loggertypes"
+	"github.com/ergin84/storvia/internal/logger"
+	types "github.com/ergin84/storvia/internal/logger/target/loggertypes"
 )
 
 const (

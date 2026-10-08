@@ -33,7 +33,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKERHUB_USERNAME }}/minio
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/storvia
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
@@ -58,7 +58,7 @@ jobs:
       - name: Trivy image scan
         uses: aquasecurity/trivy-action@v0.36.0
         with:
-          image-ref: ${{ secrets.DOCKERHUB_USERNAME }}/minio:latest
+          image-ref: ${{ secrets.DOCKERHUB_USERNAME }}/storvia:latest
           format: table
           severity: CRITICAL,HIGH
           ignore-unfixed: true
@@ -99,17 +99,17 @@ jobs:
           [ "${{ matrix.os }}" = "windows" ] && EXT=".exe"
           go build -tags kqueue -trimpath \
             -ldflags "-s -w \
-              -X github.com/ergin84/minio/cmd.Version=${{ github.ref_name }} \
-              -X github.com/ergin84/minio/cmd.ReleaseTag=${{ github.ref_name }} \
-              -X github.com/ergin84/minio/cmd.CommitID=${GITHUB_SHA} \
-              -X github.com/ergin84/minio/cmd.ShortCommitID=${SHORT_SHA}" \
-            -o minio-${{ matrix.os }}-${{ matrix.arch }}${EXT} .
+              -X github.com/ergin84/storvia/cmd.Version=${{ github.ref_name }} \
+              -X github.com/ergin84/storvia/cmd.ReleaseTag=${{ github.ref_name }} \
+              -X github.com/ergin84/storvia/cmd.CommitID=${GITHUB_SHA} \
+              -X github.com/ergin84/storvia/cmd.ShortCommitID=${SHORT_SHA}" \
+            -o storvia-${{ matrix.os }}-${{ matrix.arch }}${EXT} .
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: minio-${{ matrix.os }}-${{ matrix.arch }}
-          path: minio-${{ matrix.os }}-${{ matrix.arch }}*
+          name: storvia-${{ matrix.os }}-${{ matrix.arch }}
+          path: storvia-${{ matrix.os }}-${{ matrix.arch }}*
 
   helm:
     name: Publish Helm chart to GHCR
@@ -127,8 +127,8 @@ jobs:
         run: |
           VERSION="${{ github.ref_name }}"
           VERSION="${VERSION#v}"
-          helm package helm/minio --version "$VERSION" --app-version "$VERSION"
-          helm push "minio-${VERSION}.tgz" oci://ghcr.io/${{ github.repository_owner }}
+          helm package helm/storvia --version "$VERSION" --app-version "$VERSION"
+          helm push "storvia-${VERSION}.tgz" oci://ghcr.io/${{ github.repository_owner }}
 
   github-release:
     name: Create GitHub release
@@ -140,33 +140,47 @@ jobs:
       - name: Download all binary artifacts
         uses: actions/download-artifact@v4
         with:
-          pattern: minio-*
+          pattern: storvia-*
           merge-multiple: true
           path: dist/
+
+      - name: Generate checksums
+        run: |
+          cd dist
+          sha256sum storvia-* > checksums.sha256
+          cat checksums.sha256
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
         with:
           generate_release_notes: true
-          files: dist/*
+          files: |
+            dist/storvia-*
+            dist/checksums.sha256
           body: |
             ## Docker image
 
             ```sh
-            docker pull erginmehmeti/minio:${{ github.ref_name }}
+            docker pull erginmehmeti/storvia:${{ github.ref_name }}
             ```
 
             Multi-arch: `linux/amd64`, `linux/arm64`.
-            See [Docker Hub](https://hub.docker.com/r/erginmehmeti/minio) for all available tags.
+            See [Docker Hub](https://hub.docker.com/r/erginmehmeti/storvia) for all available tags.
 
             ## Helm chart
 
             ```sh
-            helm install minio oci://ghcr.io/ergin84/minio --version ${{ github.ref_name }}
+            helm install storvia oci://ghcr.io/ergin84/storvia --version ${{ github.ref_name }}
             ```
 
             ## Install from source
 
             ```sh
-            go install github.com/ergin84/minio@${{ github.ref_name }}
+            go install github.com/ergin84/storvia@${{ github.ref_name }}
+            ```
+
+            ## Verify checksums
+
+            ```sh
+            sha256sum -c checksums.sha256
             ```

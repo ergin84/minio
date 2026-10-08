@@ -24,7 +24,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/ergin84/minio/internal/hash"
+	"github.com/ergin84/storvia/internal/hash"
 )
 
 var errConfigNotFound = errors.New("config file not found")

@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/ergin84/minio/internal/s3select/jstream"
+	"github.com/ergin84/storvia/internal/s3select/jstream"
 	"github.com/minio/simdjson-go"
 )
 

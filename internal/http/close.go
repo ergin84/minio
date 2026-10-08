@@ -20,7 +20,7 @@ package http
 import (
 	"io"
 
-	xioutil "github.com/ergin84/minio/internal/ioutil"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
 )
 
 // DrainBody close non nil response with any response Body.

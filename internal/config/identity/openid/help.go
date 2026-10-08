@@ -17,7 +17,7 @@
 
 package openid
 
-import "github.com/ergin84/minio/internal/config"
+import "github.com/ergin84/storvia/internal/config"
 
 // Help template for OpenID identity feature.
 var (

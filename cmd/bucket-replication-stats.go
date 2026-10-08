@@ -23,7 +23,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ergin84/minio/internal/bucket/replication"
+	"github.com/ergin84/storvia/internal/bucket/replication"
 	"github.com/rcrowley/go-metrics"
 )
 

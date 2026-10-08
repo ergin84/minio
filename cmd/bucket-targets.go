@@ -29,9 +29,9 @@ import (
 	"github.com/minio/madmin-go/v3"
 	"github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/credentials"
-	"github.com/ergin84/minio/internal/bucket/replication"
-	"github.com/ergin84/minio/internal/crypto"
-	"github.com/ergin84/minio/internal/kms"
+	"github.com/ergin84/storvia/internal/bucket/replication"
+	"github.com/ergin84/storvia/internal/crypto"
+	"github.com/ergin84/storvia/internal/kms"
 )
 
 const (

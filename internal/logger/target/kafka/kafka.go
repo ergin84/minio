@@ -34,10 +34,10 @@ import (
 	"github.com/IBM/sarama"
 	saramatls "github.com/IBM/sarama/tools/tls"
 
-	xioutil "github.com/ergin84/minio/internal/ioutil"
-	types "github.com/ergin84/minio/internal/logger/target/loggertypes"
-	"github.com/ergin84/minio/internal/once"
-	"github.com/ergin84/minio/internal/store"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
+	types "github.com/ergin84/storvia/internal/logger/target/loggertypes"
+	"github.com/ergin84/storvia/internal/once"
+	"github.com/ergin84/storvia/internal/store"
 	xnet "github.com/minio/pkg/v3/net"
 )
 

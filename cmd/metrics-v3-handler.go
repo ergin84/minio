@@ -25,8 +25,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/ergin84/minio/internal/config"
-	"github.com/ergin84/minio/internal/mcontext"
+	"github.com/ergin84/storvia/internal/config"
+	"github.com/ergin84/storvia/internal/mcontext"
 	"github.com/minio/mux"
 	"github.com/minio/pkg/v3/env"
 	"github.com/prometheus/client_golang/prometheus"

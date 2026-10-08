@@ -21,9 +21,9 @@ import (
 	"context"
 	"time"
 
-	"github.com/ergin84/minio/internal/dsync"
-	"github.com/ergin84/minio/internal/grid"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/dsync"
+	"github.com/ergin84/storvia/internal/grid"
+	"github.com/ergin84/storvia/internal/logger"
 )
 
 // To abstract a node over network.

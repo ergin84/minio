@@ -27,7 +27,7 @@ import (
 
 	"github.com/klauspost/compress/gzip"
 	"github.com/minio/madmin-go/v3/logger/log"
-	xioutil "github.com/ergin84/minio/internal/ioutil"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
 )
 
 func defaultFilenameFunc() string {

@@ -36,13 +36,13 @@ import (
 	"strings"
 
 	"github.com/minio/kms-go/kes"
-	"github.com/ergin84/minio/internal/crypto"
-	"github.com/ergin84/minio/internal/etag"
-	"github.com/ergin84/minio/internal/hash"
-	"github.com/ergin84/minio/internal/hash/sha256"
-	xhttp "github.com/ergin84/minio/internal/http"
-	"github.com/ergin84/minio/internal/kms"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/crypto"
+	"github.com/ergin84/storvia/internal/etag"
+	"github.com/ergin84/storvia/internal/hash"
+	"github.com/ergin84/storvia/internal/hash/sha256"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	"github.com/ergin84/storvia/internal/kms"
+	"github.com/ergin84/storvia/internal/logger"
 	"github.com/minio/sio"
 )
 

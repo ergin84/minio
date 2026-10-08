@@ -23,7 +23,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/logger"
 	ftp "goftp.io/server/v2"
 )
 

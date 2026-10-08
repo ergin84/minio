@@ -22,7 +22,7 @@ import (
 	"testing"
 
 	"github.com/minio/madmin-go/v3"
-	"github.com/ergin84/minio/internal/auth"
+	"github.com/ergin84/storvia/internal/auth"
 )
 
 func TestDecryptData(t *testing.T) {

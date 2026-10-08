@@ -27,7 +27,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	xhttp "github.com/ergin84/minio/internal/http"
+	xhttp "github.com/ergin84/storvia/internal/http"
 )
 
 // A message is in the format specified in

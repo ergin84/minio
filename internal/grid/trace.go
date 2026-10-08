@@ -25,7 +25,7 @@ import (
 	"time"
 
 	"github.com/minio/madmin-go/v3"
-	"github.com/ergin84/minio/internal/pubsub"
+	"github.com/ergin84/storvia/internal/pubsub"
 )
 
 // TraceParamsKey allows to pass trace parameters to the request via context.

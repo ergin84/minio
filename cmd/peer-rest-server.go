@@ -38,12 +38,12 @@ import (
 	"github.com/klauspost/compress/zstd"
 	"github.com/minio/madmin-go/v3"
 	"github.com/minio/madmin-go/v3/logger/log"
-	"github.com/ergin84/minio/internal/bucket/bandwidth"
-	"github.com/ergin84/minio/internal/event"
-	"github.com/ergin84/minio/internal/grid"
-	xioutil "github.com/ergin84/minio/internal/ioutil"
-	"github.com/ergin84/minio/internal/logger"
-	"github.com/ergin84/minio/internal/pubsub"
+	"github.com/ergin84/storvia/internal/bucket/bandwidth"
+	"github.com/ergin84/storvia/internal/event"
+	"github.com/ergin84/storvia/internal/grid"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
+	"github.com/ergin84/storvia/internal/logger"
+	"github.com/ergin84/storvia/internal/pubsub"
 	"github.com/minio/mux"
 )
 

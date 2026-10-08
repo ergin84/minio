@@ -21,8 +21,8 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/ergin84/minio/internal/crypto"
-	"github.com/ergin84/minio/internal/hash"
+	"github.com/ergin84/storvia/internal/crypto"
+	"github.com/ergin84/storvia/internal/hash"
 )
 
 var toAPIErrorTests = []struct {

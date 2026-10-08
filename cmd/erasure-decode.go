@@ -25,7 +25,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	xioutil "github.com/ergin84/minio/internal/ioutil"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
 )
 
 // Reads in parallel from readers.

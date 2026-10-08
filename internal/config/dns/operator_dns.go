@@ -32,8 +32,8 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt/v4"
-	"github.com/ergin84/minio/internal/config"
-	xhttp "github.com/ergin84/minio/internal/http"
+	"github.com/ergin84/storvia/internal/config"
+	xhttp "github.com/ergin84/storvia/internal/http"
 )
 
 var (

@@ -23,9 +23,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/ergin84/minio/internal/bucket/lifecycle"
-	xhttp "github.com/ergin84/minio/internal/http"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/bucket/lifecycle"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	"github.com/ergin84/storvia/internal/logger"
 	"github.com/minio/mux"
 	"github.com/minio/pkg/v3/policy"
 )

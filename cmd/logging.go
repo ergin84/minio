@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 
-	"github.com/ergin84/minio/internal/grid"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/grid"
+	"github.com/ergin84/storvia/internal/logger"
 )
 
 func proxyLogIf(ctx context.Context, err error, errKind ...any) {

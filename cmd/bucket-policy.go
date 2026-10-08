@@ -29,10 +29,10 @@ import (
 	jsoniter "github.com/json-iterator/go"
 	miniogopolicy "github.com/minio/minio-go/v7/pkg/policy"
 	"github.com/minio/minio-go/v7/pkg/tags"
-	"github.com/ergin84/minio/internal/auth"
-	"github.com/ergin84/minio/internal/handlers"
-	xhttp "github.com/ergin84/minio/internal/http"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/auth"
+	"github.com/ergin84/storvia/internal/handlers"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	"github.com/ergin84/storvia/internal/logger"
 	"github.com/minio/pkg/v3/policy"
 )
 

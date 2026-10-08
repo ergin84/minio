@@ -31,11 +31,11 @@ import (
 	"time"
 
 	"github.com/minio/minio-go/v7/pkg/signer"
-	"github.com/ergin84/minio/internal/auth"
-	"github.com/ergin84/minio/internal/config"
-	"github.com/ergin84/minio/internal/config/lambda"
-	levent "github.com/ergin84/minio/internal/config/lambda/event"
-	xhttp "github.com/ergin84/minio/internal/http"
+	"github.com/ergin84/storvia/internal/auth"
+	"github.com/ergin84/storvia/internal/config"
+	"github.com/ergin84/storvia/internal/config/lambda"
+	levent "github.com/ergin84/storvia/internal/config/lambda/event"
+	xhttp "github.com/ergin84/storvia/internal/http"
 )
 
 func TestGetObjectLambdaHandler(t *testing.T) {

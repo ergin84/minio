@@ -24,8 +24,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/ergin84/minio/internal/grid"
-	xioutil "github.com/ergin84/minio/internal/ioutil"
+	"github.com/ergin84/storvia/internal/grid"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
 	"github.com/valyala/bytebufferpool"
 )
 

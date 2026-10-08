@@ -29,8 +29,8 @@ import (
 	"time"
 
 	"github.com/minio/madmin-go/v3"
-	"github.com/ergin84/minio/internal/grid"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/grid"
+	"github.com/ergin84/storvia/internal/logger"
 	"github.com/minio/pkg/v3/sync/errgroup"
 	"github.com/puzpuzpuz/xsync/v3"
 )

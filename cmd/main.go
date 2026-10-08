@@ -30,8 +30,8 @@ import (
 	"time"
 
 	"github.com/minio/cli"
-	"github.com/ergin84/minio/internal/color"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/color"
+	"github.com/ergin84/storvia/internal/logger"
 	"github.com/minio/pkg/v3/console"
 	"github.com/minio/pkg/v3/env"
 	"github.com/minio/pkg/v3/trie"
@@ -150,16 +150,16 @@ func newApp(name string) *cli.App {
 
 	app := cli.NewApp()
 	app.Name = name
-	app.Author = "MinIO, Inc."
+	app.Author = "Storvia Contributors (based on MinIO by MinIO, Inc.)"
 	app.Version = ReleaseTag
-	app.Usage = "High Performance Object Storage"
-	app.Description = `Build high performance data infrastructure for machine learning, analytics and application data workloads with MinIO`
+	app.Usage = "Open Source S3-Compatible Object Storage"
+	app.Description = `Storvia is a community-maintained, S3-compatible object storage server based on the open-source MinIO codebase.`
 	app.Flags = GlobalFlags
-	app.HideHelpCommand = true // Hide `help, h` command, we already have `minio --help`.
+	app.HideHelpCommand = true // Hide `help, h` command, we already have `storvia --help`.
 	app.Commands = commands
 	app.CustomAppHelpTemplate = minioHelpTemplate
 	app.CommandNotFound = func(ctx *cli.Context, command string) {
-		console.Printf("‘%s’ is not a minio sub-command. See ‘minio --help’.\n", command)
+		console.Printf("’%s’ is not a storvia sub-command. See ‘storvia --help’.\n", command)
 		closestCommands := findClosestCommands(command)
 		if len(closestCommands) > 0 {
 			console.Println()
@@ -177,7 +177,7 @@ func newApp(name string) *cli.App {
 
 func startupBanner(banner io.Writer) {
 	CopyrightYear = strconv.Itoa(time.Now().Year())
-	fmt.Fprintln(banner, color.Blue("Copyright:")+color.Bold(" 2015-%s MinIO, Inc.", CopyrightYear))
+	fmt.Fprintln(banner, color.Blue("Project:")+color.Bold(" Storvia (based on MinIO by MinIO, Inc.)"))
 	fmt.Fprintln(banner, color.Blue("License:")+color.Bold(" "+MinioLicense))
 	fmt.Fprintln(banner, color.Blue("Version:")+color.Bold(" %s (%s %s/%s)", ReleaseTag, runtime.Version(), runtime.GOOS, runtime.GOARCH))
 }
@@ -187,7 +187,7 @@ func versionBanner(c *cli.Context) io.Reader {
 	fmt.Fprintln(banner, color.Bold("%s version %s (commit-id=%s)", c.App.Name, c.App.Version, CommitID))
 	fmt.Fprintln(banner, color.Blue("Runtime:")+color.Bold(" %s %s/%s", runtime.Version(), runtime.GOOS, runtime.GOARCH))
 	fmt.Fprintln(banner, color.Blue("License:")+color.Bold(" GNU AGPLv3 - https://www.gnu.org/licenses/agpl-3.0.html"))
-	fmt.Fprintln(banner, color.Blue("Copyright:")+color.Bold(" 2015-%s MinIO, Inc.", CopyrightYear))
+	fmt.Fprintln(banner, color.Blue("Based on:")+color.Bold(" MinIO Object Storage by MinIO, Inc."))
 	return strings.NewReader(banner.String())
 }
 

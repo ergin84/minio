@@ -28,9 +28,9 @@ import (
 	"testing"
 
 	"github.com/dustin/go-humanize"
-	"github.com/ergin84/minio/internal/config/storageclass"
-	"github.com/ergin84/minio/internal/hash"
-	"github.com/ergin84/minio/internal/ioutil"
+	"github.com/ergin84/storvia/internal/config/storageclass"
+	"github.com/ergin84/storvia/internal/hash"
+	"github.com/ergin84/storvia/internal/ioutil"
 )
 
 // Wrapper for calling NewMultipartUpload tests for both Erasure multiple disks and single node setup.

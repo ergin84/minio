@@ -6,8 +6,8 @@ GOOS ?= $(shell go env GOOS)
 GOARCH ?= $(shell go env GOARCH)
 
 VERSION ?= $(shell git describe --tags)
-REPO ?= quay.io/minio
-TAG ?= $(REPO)/minio:$(VERSION)
+REPO ?= erginmehmeti/storvia
+TAG ?= $(REPO):$(VERSION)
 
 GOLANGCI_DIR = .bin/golangci/$(GOLANGCI_VERSION)
 GOLANGCI = $(GOLANGCI_DIR)/golangci-lint
@@ -25,7 +25,7 @@ getdeps: ## fetch necessary dependencies
 	@mkdir -p ${GOPATH}/bin
 	@echo "Installing golangci-lint" && curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(GOLANGCI_DIR)
 
-crosscompile: ## cross compile minio
+crosscompile: ## cross compile storvia
 	@(env bash $(PWD)/buildscripts/cross-compile.sh)
 
 verifiers: lint check-gen
@@ -176,9 +176,9 @@ verify-healing-inconsistent-versions: install-race ## verify resolving inconsist
 build-debugging:
 	@(env bash $(PWD)/docs/debugging/build.sh)
 
-build: checks build-debugging ## builds minio to $(PWD)
-	@echo "Building minio binary to './minio'"
-	@CGO_ENABLED=0 GOOS=$(GOOS) GOARCH=$(GOARCH) go build -tags kqueue -trimpath --ldflags "$(LDFLAGS)" -o $(PWD)/minio 1>/dev/null
+build: checks build-debugging ## builds storvia to $(PWD)
+	@echo "Building storvia binary to './storvia'"
+	@CGO_ENABLED=0 GOOS=$(GOOS) GOARCH=$(GOARCH) go build -tags kqueue -trimpath --ldflags "$(LDFLAGS)" -o $(PWD)/storvia 1>/dev/null
 
 hotfix-vars:
 	$(eval LDFLAGS := $(shell MINIO_RELEASE="RELEASE" MINIO_HOTFIX="hotfix.$(shell git rev-parse --short HEAD)" go run buildscripts/gen-ldflags.go $(shell git describe --tags --abbrev=0 | \
@@ -223,16 +223,16 @@ test-resiliency: build
 	@echo "Running resiliency tests"
 	@(DOCKER_COMPOSE_FILE=$(PWD)/docs/resiliency/docker-compose.yaml env bash $(PWD)/docs/resiliency/resiliency-tests.sh)
 
-install-race: checks build-debugging ## builds minio to $(PWD)
-	@echo "Building minio binary with -race to './minio'"
-	@GORACE=history_size=7 CGO_ENABLED=1 go build -tags kqueue,dev -race -trimpath --ldflags "$(LDFLAGS)" -o $(PWD)/minio 1>/dev/null
-	@echo "Installing minio binary with -race to '$(GOPATH)/bin/minio'"
-	@mkdir -p $(GOPATH)/bin && cp -af $(PWD)/minio $(GOPATH)/bin/minio
+install-race: checks build-debugging ## builds storvia to $(PWD) with -race
+	@echo "Building storvia binary with -race to './storvia'"
+	@GORACE=history_size=7 CGO_ENABLED=1 go build -tags kqueue,dev -race -trimpath --ldflags "$(LDFLAGS)" -o $(PWD)/storvia 1>/dev/null
+	@echo "Installing storvia binary with -race to '$(GOPATH)/bin/storvia'"
+	@mkdir -p $(GOPATH)/bin && cp -af $(PWD)/storvia $(GOPATH)/bin/storvia
 
-install: build ## builds minio and installs it to $GOPATH/bin.
-	@echo "Installing minio binary to '$(GOPATH)/bin/minio'"
-	@mkdir -p $(GOPATH)/bin && cp -af $(PWD)/minio $(GOPATH)/bin/minio
-	@echo "Installation successful. To learn more, try \"minio --help\"."
+install: build ## builds storvia and installs it to $GOPATH/bin.
+	@echo "Installing storvia binary to '$(GOPATH)/bin/storvia'"
+	@mkdir -p $(GOPATH)/bin && cp -af $(PWD)/storvia $(GOPATH)/bin/storvia
+	@echo "Installation successful. To learn more, try \"storvia --help\"."
 
 clean: ## cleanup all generated assets
 	@echo "Cleaning up all the generated files"
@@ -240,10 +240,10 @@ clean: ## cleanup all generated assets
 	@find . -name '*~' | xargs rm -fv
 	@find . -name '.#*#' | xargs rm -fv
 	@find . -name '#*#' | xargs rm -fv
-	@rm -rvf minio
+	@rm -rvf storvia
 	@rm -rvf build
 	@rm -rvf release
 	@rm -rvf .verify*
-	@rm -rvf minio-release
-	@rm -rvf minio.RELEASE*.hotfix.*
+	@rm -rvf storvia-release
+	@rm -rvf storvia.RELEASE*.hotfix.*
 	@rm -rvf pkger_*.deb

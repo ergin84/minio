@@ -25,8 +25,8 @@ import (
 
 	xnet "github.com/minio/pkg/v3/net"
 
-	"github.com/ergin84/minio/internal/color"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/color"
+	"github.com/ergin84/storvia/internal/logger"
 )
 
 // generates format string depending on the string length and padding.

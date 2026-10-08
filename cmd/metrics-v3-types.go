@@ -25,7 +25,7 @@ import (
 	"sync"
 
 	"github.com/minio/minio-go/v7/pkg/set"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/logger"
 	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"
 )

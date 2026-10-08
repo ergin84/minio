@@ -23,7 +23,7 @@ import (
 	"time"
 
 	"github.com/minio/madmin-go/v3"
-	"github.com/ergin84/minio/internal/cachevalue"
+	"github.com/ergin84/storvia/internal/cachevalue"
 )
 
 // metricsCache - cache for metrics.

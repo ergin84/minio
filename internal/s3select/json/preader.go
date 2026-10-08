@@ -24,9 +24,9 @@ import (
 	"runtime"
 	"sync"
 
-	"github.com/ergin84/minio/internal/bpool"
-	"github.com/ergin84/minio/internal/s3select/jstream"
-	"github.com/ergin84/minio/internal/s3select/sql"
+	"github.com/ergin84/storvia/internal/bpool"
+	"github.com/ergin84/storvia/internal/s3select/jstream"
+	"github.com/ergin84/storvia/internal/s3select/sql"
 )
 
 // PReader - JSON record reader for S3Select.

@@ -25,9 +25,9 @@ import (
 	"io"
 	"sync"
 
-	xhttp "github.com/ergin84/minio/internal/http"
-	"github.com/ergin84/minio/internal/ioutil"
-	"github.com/ergin84/minio/internal/ringbuffer"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	"github.com/ergin84/storvia/internal/ioutil"
+	"github.com/ergin84/storvia/internal/ringbuffer"
 )
 
 // Calculates bitrot in chunks and writes the hash into the stream.

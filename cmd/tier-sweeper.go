@@ -20,7 +20,7 @@ package cmd
 import (
 	"context"
 
-	"github.com/ergin84/minio/internal/bucket/lifecycle"
+	"github.com/ergin84/storvia/internal/bucket/lifecycle"
 )
 
 // objSweeper determines if a transitioned object needs to be removed from the remote tier.

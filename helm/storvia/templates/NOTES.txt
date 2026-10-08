@@ -1,0 +1,62 @@
+{{- if eq .Values.service.type "ClusterIP" "NodePort" }}
+Storvia can be accessed via port {{ .Values.service.port }} on the following DNS name from within your cluster:
+{{ template "storvia.fullname" . }}.{{ .Release.Namespace }}.{{ .Values.clusterDomain }}
+
+To access Storvia from localhost, run the below commands:
+
+  1. export POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "release={{ .Release.Name }}" -o jsonpath="{.items[0].metadata.name}")
+
+  2. kubectl port-forward $POD_NAME 9000 --namespace {{ .Release.Namespace }}
+
+Read more about port forwarding here: http://kubernetes.io/docs/user-guide/kubectl/kubectl_port-forward/
+
+You can now access Storvia server on http://localhost:9000. Follow the below steps to connect with mc client:
+
+  1. Download the MinIO mc client - https://docs.min.io/community/minio-object-store/reference/minio-mc.html#quickstart
+
+  2. export MC_HOST_{{ template "storvia.fullname" . }}_local=http://$(kubectl get secret --namespace {{ .Release.Namespace }} {{ template "storvia.secretName" . }} -o jsonpath="{.data.rootUser}" | base64 --decode):$(kubectl get secret --namespace {{ .Release.Namespace }} {{ template "storvia.secretName" . }} -o jsonpath="{.data.rootPassword}" | base64 --decode)@localhost:{{ .Values.service.port }}
+
+  3. mc ls {{ template "storvia.fullname" . }}_local
+
+{{- end }}
+{{- if eq .Values.service.type "LoadBalancer" }}
+Storvia can be accessed via port {{ .Values.service.port }} on an external IP address. Get the service external IP address by:
+kubectl get svc --namespace {{ .Release.Namespace }} -l app={{ template "storvia.fullname" . }}
+
+Note that the public IP may take a couple of minutes to be available.
+
+You can now access Storvia server on http://<External-IP>:9000. Follow the below steps to connect with mc client:
+
+  1. Download the MinIO mc client - https://docs.min.io/community/minio-object-store/reference/minio-mc.html#quickstart
+
+  2. export MC_HOST_{{ template "storvia.fullname" . }}_local=http://$(kubectl get secret {{ template "storvia.secretName" . }} --namespace {{ .Release.Namespace }} -o jsonpath="{.data.rootUser}" | base64 --decode):$(kubectl get secret {{ template "storvia.secretName" . }} -o jsonpath="{.data.rootPassword}" | base64 --decode)@<External-IP>:{{ .Values.service.port }}
+
+  3. mc ls {{ template "storvia.fullname" . }}
+
+Alternately, you can use your browser or the MinIO SDK to access the server - https://docs.min.io/community/minio-object-store/reference/minio-server/minio-server.html
+{{- end }}
+
+{{ if and (.Values.networkPolicy.enabled) (not .Values.networkPolicy.allowExternal) }}
+Note: Since NetworkPolicy is enabled, only pods with label
+{{ template "storvia.fullname" . }}-client=true"
+will be able to connect to this Storvia cluster.
+{{- end }}
+
+{{- if and (eq .Values.mode "distributed") .Values.persistence.existingClaim }}
+
+WARNING: persistence.existingClaim is set but will be ignored in distributed mode.
+
+In distributed mode, Storvia automatically creates multiple PersistentVolumeClaims
+using StatefulSet's volumeClaimTemplates for erasure coding.
+Your specified PVC '{{ .Values.persistence.existingClaim }}' will not be used.
+
+To use your existing PVC:
+  - Switch to standalone mode: --set mode=standalone
+
+To use distributed mode with custom storage:
+  - Specify a StorageClass: --set persistence.storageClass=<your-storage-class>
+
+For more information:
+https://github.com/ergin84/storvia/tree/master/helm/storvia#distributed-vs-standalone
+
+{{- end }}

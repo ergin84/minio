@@ -18,7 +18,7 @@
 package notify
 
 import (
-	"github.com/ergin84/minio/internal/event/target"
+	"github.com/ergin84/storvia/internal/event/target"
 )
 
 // Config - notification target configuration structure, holds

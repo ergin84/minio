@@ -21,7 +21,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/ergin84/minio/internal/lock"
+	"github.com/ergin84/storvia/internal/lock"
 )
 
 // AppendFile - appends the file "src" to the file "dst"

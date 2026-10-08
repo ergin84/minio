@@ -20,8 +20,8 @@ package cmd
 import (
 	"strings"
 
-	"github.com/ergin84/minio/internal/bucket/versioning"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/bucket/versioning"
+	"github.com/ergin84/storvia/internal/logger"
 )
 
 // BucketVersioningSys - policy subsystem.

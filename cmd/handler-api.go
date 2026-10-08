@@ -31,10 +31,10 @@ import (
 	"github.com/dustin/go-humanize"
 	"github.com/shirou/gopsutil/v3/mem"
 
-	"github.com/ergin84/minio/internal/config/api"
-	xioutil "github.com/ergin84/minio/internal/ioutil"
-	"github.com/ergin84/minio/internal/logger"
-	"github.com/ergin84/minio/internal/mcontext"
+	"github.com/ergin84/storvia/internal/config/api"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
+	"github.com/ergin84/storvia/internal/logger"
+	"github.com/ergin84/storvia/internal/mcontext"
 )
 
 type apiConfig struct {

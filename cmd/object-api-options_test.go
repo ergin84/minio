@@ -23,7 +23,7 @@ import (
 	"reflect"
 	"testing"
 
-	xhttp "github.com/ergin84/minio/internal/http"
+	xhttp "github.com/ergin84/storvia/internal/http"
 )
 
 // TestGetAndValidateAttributesOpts is currently minimal and covers a subset of getAndValidateAttributesOpts(),

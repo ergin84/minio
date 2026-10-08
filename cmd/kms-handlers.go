@@ -23,9 +23,9 @@ import (
 	"net/http"
 
 	"github.com/minio/madmin-go/v3"
-	"github.com/ergin84/minio/internal/auth"
-	"github.com/ergin84/minio/internal/kms"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/auth"
+	"github.com/ergin84/storvia/internal/kms"
+	"github.com/ergin84/storvia/internal/logger"
 	"github.com/minio/pkg/v3/policy"
 )
 

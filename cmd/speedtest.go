@@ -27,8 +27,8 @@ import (
 
 	"github.com/minio/dperf/pkg/dperf"
 	"github.com/minio/madmin-go/v3"
-	"github.com/ergin84/minio/internal/auth"
-	xioutil "github.com/ergin84/minio/internal/ioutil"
+	"github.com/ergin84/storvia/internal/auth"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
 )
 
 const speedTest = "speedtest"

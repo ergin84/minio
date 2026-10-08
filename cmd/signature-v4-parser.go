@@ -23,8 +23,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ergin84/minio/internal/auth"
-	xhttp "github.com/ergin84/minio/internal/http"
+	"github.com/ergin84/storvia/internal/auth"
+	xhttp "github.com/ergin84/storvia/internal/http"
 )
 
 // credentialHeader data type represents structured form of Credential

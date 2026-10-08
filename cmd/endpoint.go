@@ -34,9 +34,9 @@ import (
 
 	"github.com/dustin/go-humanize"
 	"github.com/minio/minio-go/v7/pkg/set"
-	"github.com/ergin84/minio/internal/config"
-	"github.com/ergin84/minio/internal/logger"
-	"github.com/ergin84/minio/internal/mountinfo"
+	"github.com/ergin84/storvia/internal/config"
+	"github.com/ergin84/storvia/internal/logger"
+	"github.com/ergin84/storvia/internal/mountinfo"
 	"github.com/minio/pkg/v3/env"
 	xnet "github.com/minio/pkg/v3/net"
 )

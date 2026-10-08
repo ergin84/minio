@@ -22,8 +22,8 @@ import (
 	"encoding/xml"
 	"net/http"
 
-	xhttp "github.com/ergin84/minio/internal/http"
-	"github.com/ergin84/minio/internal/logger"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	"github.com/ergin84/storvia/internal/logger"
 )
 
 // writeSTSErrorResponse writes error headers

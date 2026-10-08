@@ -22,7 +22,7 @@ import (
 	"sync"
 
 	"github.com/minio/madmin-go/v3"
-	"github.com/ergin84/minio/internal/pubsub"
+	"github.com/ergin84/storvia/internal/pubsub"
 )
 
 const bootstrapTraceLimit = 4 << 10

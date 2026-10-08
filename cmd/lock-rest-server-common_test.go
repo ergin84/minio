@@ -24,7 +24,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/ergin84/minio/internal/dsync"
+	"github.com/ergin84/storvia/internal/dsync"
 )
 
 // Helper function to create a lock server for testing

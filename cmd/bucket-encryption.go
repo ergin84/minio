@@ -21,7 +21,7 @@ import (
 	"errors"
 	"io"
 
-	sse "github.com/ergin84/minio/internal/bucket/encryption"
+	sse "github.com/ergin84/storvia/internal/bucket/encryption"
 )
 
 // BucketSSEConfigSys - in-memory cache of bucket encryption config

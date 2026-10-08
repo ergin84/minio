@@ -21,9 +21,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/ergin84/minio/internal/auth"
-	"github.com/ergin84/minio/internal/logger"
-	"github.com/ergin84/minio/internal/mcontext"
+	"github.com/ergin84/storvia/internal/auth"
+	"github.com/ergin84/storvia/internal/logger"
+	"github.com/ergin84/storvia/internal/mcontext"
 	"github.com/minio/pkg/v3/policy"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/common/expfmt"

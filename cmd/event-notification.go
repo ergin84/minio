@@ -25,10 +25,10 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/ergin84/minio/internal/crypto"
-	"github.com/ergin84/minio/internal/event"
-	xhttp "github.com/ergin84/minio/internal/http"
-	"github.com/ergin84/minio/internal/pubsub"
+	"github.com/ergin84/storvia/internal/crypto"
+	"github.com/ergin84/storvia/internal/event"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	"github.com/ergin84/storvia/internal/pubsub"
 	"github.com/minio/pkg/v3/policy"
 )
 
