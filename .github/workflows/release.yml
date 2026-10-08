@@ -49,6 +49,9 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            VERSION=${{ github.ref_name }}
+            COMMIT=${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -91,9 +94,15 @@ jobs:
           GOOS: ${{ matrix.os }}
           GOARCH: ${{ matrix.arch }}
         run: |
+          SHORT_SHA="${GITHUB_SHA:0:12}"
           EXT=""
           [ "${{ matrix.os }}" = "windows" ] && EXT=".exe"
-          go build -tags kqueue -trimpath -ldflags "-s -w" \
+          go build -tags kqueue -trimpath \
+            -ldflags "-s -w \
+              -X github.com/ergin84/minio/cmd.Version=${{ github.ref_name }} \
+              -X github.com/ergin84/minio/cmd.ReleaseTag=${{ github.ref_name }} \
+              -X github.com/ergin84/minio/cmd.CommitID=${GITHUB_SHA} \
+              -X github.com/ergin84/minio/cmd.ShortCommitID=${SHORT_SHA}" \
             -o minio-${{ matrix.os }}-${{ matrix.arch }}${EXT} .
 
       - name: Upload artifact

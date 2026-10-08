@@ -2,14 +2,23 @@ FROM golang:1.24-bookworm AS builder
 
 ARG TARGETOS=linux
 ARG TARGETARCH=amd64
+ARG VERSION=dev
+ARG COMMIT=unknown
 
 WORKDIR /build
 COPY go.mod go.sum ./
 RUN go mod download
 COPY . .
 
-RUN CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} \
-    go build -tags kqueue -trimpath -ldflags "-s -w" -o minio .
+RUN SHORT_COMMIT=$(echo "${COMMIT}" | cut -c1-12) && \
+    CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} \
+    go build -tags kqueue -trimpath \
+    -ldflags "-s -w \
+      -X github.com/ergin84/minio/cmd.Version=${VERSION} \
+      -X github.com/ergin84/minio/cmd.ReleaseTag=${VERSION} \
+      -X github.com/ergin84/minio/cmd.CommitID=${COMMIT} \
+      -X github.com/ergin84/minio/cmd.ShortCommitID=${SHORT_COMMIT}" \
+    -o minio .
 
 FROM debian:bookworm-slim
 
