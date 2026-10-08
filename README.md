@@ -8,7 +8,7 @@
 
 # MinIO Quickstart Guide
 
-[![Issues](https://img.shields.io/github/issues/ergin84/minio)](https://github.com/ergin84/minio/issues) [![Docker Pulls](https://img.shields.io/docker/pulls/minio/minio.svg?maxAge=604800)](https://hub.docker.com/r/minio/minio/) [![license](https://img.shields.io/badge/license-AGPL%20V3-blue)](https://github.com/ergin84/minio/blob/master/LICENSE)
+[![Issues](https://img.shields.io/github/issues/ergin84/minio)](https://github.com/ergin84/minio/issues) [![Docker Pulls](https://img.shields.io/docker/pulls/erginmehmeti/minio.svg?maxAge=604800)](https://hub.docker.com/r/erginmehmeti/minio) [![license](https://img.shields.io/badge/license-AGPL%20V3-blue)](https://github.com/ergin84/minio/blob/master/LICENSE)
 
 [![MinIO](https://raw.githubusercontent.com/minio/minio/master/.github/logo.svg?sanitize=true)](https://github.com/ergin84/minio)
 
