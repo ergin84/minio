@@ -1,0 +1,59 @@
+{{- if .Values.ingress.enabled -}}
+{{- $fullName := include "storvia.fullname" . -}}
+{{- $servicePort := .Values.service.port -}}
+{{- $ingressPath := .Values.ingress.path -}}
+{{- $ingressPathType := .Values.ingress.pathType -}}
+apiVersion: {{ template "storvia.ingress.apiVersion" . }}
+kind: Ingress
+metadata:
+  name: {{ $fullName }}
+  labels:
+    app: {{ template "storvia.name" . }}
+    chart: {{ template "storvia.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    {{- with .Values.ingress.labels }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- with .Values.ingress.annotations }}
+  annotations: {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- if .Values.ingress.ingressClassName }}
+  ingressClassName: {{ .Values.ingress.ingressClassName }}
+  {{- end }}
+  {{- if .Values.ingress.tls }}
+  tls:
+    {{- range .Values.ingress.tls }}
+    - hosts:
+      {{- range .hosts }}
+        - {{ . | quote }}
+      {{- end }}
+      secretName: {{ .secretName }}
+    {{- end }}
+  {{- end }}
+  rules:
+    {{- $domain := include "storvia.domain" . -}}
+    {{- range .Values.ingress.hosts }}
+    - http:
+        paths:
+          - path: {{ $ingressPath }}
+            {{- if semverCompare ">=1.19-0" $.Capabilities.KubeVersion.GitVersion }}
+            pathType: {{ $ingressPathType }}
+            backend:
+              service:
+                name: {{ $fullName }}
+                port:
+                  number: {{ $servicePort }}
+            {{- else }}
+            backend:
+              serviceName: {{ $fullName }}
+              servicePort: {{ $servicePort }}
+            {{- end }}
+      {{- if . }}
+        {{- $host := . }}
+        {{- $hostWithDomain := printf "%s%s" $host $domain }}
+        host: {{ $hostWithDomain | quote }}
+      {{- end }}
+    {{- end }}
+{{- end }}

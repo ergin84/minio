@@ -1,0 +1,41 @@
+FROM golang:1.26-bookworm AS builder
+
+ARG TARGETOS=linux
+ARG TARGETARCH=amd64
+ARG VERSION=dev
+ARG COMMIT=unknown
+
+WORKDIR /build
+COPY go.mod go.sum ./
+RUN go mod download
+COPY . .
+
+RUN SHORT_COMMIT=$(echo "${COMMIT}" | cut -c1-12) && \
+    CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} \
+    go build -tags kqueue -trimpath \
+    -ldflags "-s -w \
+      -X github.com/ergin84/storvia/cmd.Version=${VERSION} \
+      -X github.com/ergin84/storvia/cmd.ReleaseTag=${VERSION} \
+      -X github.com/ergin84/storvia/cmd.CommitID=${COMMIT} \
+      -X github.com/ergin84/storvia/cmd.ShortCommitID=${SHORT_COMMIT}" \
+    -o storvia .
+
+FROM debian:bookworm-slim
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY --from=builder /build/storvia /usr/bin/storvia
+# Compatibility symlink so tools that call "minio" directly continue to work.
+RUN ln -s /usr/bin/storvia /usr/bin/minio
+COPY dockerscripts/docker-entrypoint.sh /usr/bin/docker-entrypoint.sh
+
+RUN chmod +x /usr/bin/storvia /usr/bin/docker-entrypoint.sh
+
+EXPOSE 9000 9001
+
+VOLUME ["/data"]
+
+ENTRYPOINT ["/usr/bin/docker-entrypoint.sh"]
+CMD ["storvia"]
