@@ -35,7 +35,7 @@ docker pull ergin84/minio:latest
 | Dependencies | Updated when security advisories are published |
 | New features | Accepted via PR; reviewed on best-effort basis |
 
-Supported Go version: **1.25+**
+Supported Go version: **1.26+**
 
 ## What diverges from upstream
 
@@ -68,6 +68,7 @@ Supported Go version: **1.25+**
 | `github.com/eclipse/paho.mqtt.golang` | 1.5.0 | 1.5.1 | [#21713](https://github.com/minio/minio/pull/21713) |
 | `go.opentelemetry.io/otel/sdk` | 1.35.0 | 1.43.0 | [#21751](https://github.com/minio/minio/pull/21751) |
 | minimum Go version | 1.24 | 1.25 | (required by otel + nats) |
+| minimum Go version | 1.25 | 1.26 | (required by x/crypto, x/net, prometheus 0.315) |
 
 ## Orphaned upstream PRs — status
 
