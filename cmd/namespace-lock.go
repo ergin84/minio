@@ -28,9 +28,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ergin84/minio/internal/dsync"
-	"github.com/ergin84/minio/internal/logger"
-	"github.com/ergin84/minio/internal/lsync"
+	"github.com/ergin84/storvia/internal/dsync"
+	"github.com/ergin84/storvia/internal/logger"
+	"github.com/ergin84/storvia/internal/lsync"
 )
 
 // local lock servers
@@ -319,7 +319,7 @@ func getSource(n int) string {
 	if ok {
 		filename = pathutil.Base(filename)
 		funcName = strings.TrimPrefix(runtime.FuncForPC(pc).Name(),
-			"github.com/ergin84/minio/cmd.")
+			"github.com/ergin84/storvia/cmd.")
 	} else {
 		filename = "<unknown>"
 		lineNum = 0

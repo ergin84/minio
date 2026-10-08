@@ -26,7 +26,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/logger"
 	"github.com/minio/pkg/v3/console"
 )
 

@@ -24,10 +24,10 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/ergin84/minio/internal/arn"
-	"github.com/ergin84/minio/internal/config"
-	"github.com/ergin84/minio/internal/config/identity/openid/provider"
-	xhttp "github.com/ergin84/minio/internal/http"
+	"github.com/ergin84/storvia/internal/arn"
+	"github.com/ergin84/storvia/internal/config"
+	"github.com/ergin84/storvia/internal/config/identity/openid/provider"
+	xhttp "github.com/ergin84/storvia/internal/http"
 	xnet "github.com/minio/pkg/v3/net"
 )
 

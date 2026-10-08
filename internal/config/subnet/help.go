@@ -17,7 +17,7 @@
 
 package subnet
 
-import "github.com/ergin84/minio/internal/config"
+import "github.com/ergin84/storvia/internal/config"
 
 var (
 	defaultHelpPostfix = func(key string) string {

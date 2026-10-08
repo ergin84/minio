@@ -1,4 +1,4 @@
-module github.com/ergin84/minio
+module github.com/ergin84/storvia
 
 go 1.26.0
 

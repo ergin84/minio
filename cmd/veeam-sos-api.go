@@ -26,7 +26,7 @@ import (
 	"strings"
 
 	"github.com/minio/madmin-go/v3"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/logger"
 )
 
 // From Veeam-SOSAPI_1.0_Document_v1.02d.pdf

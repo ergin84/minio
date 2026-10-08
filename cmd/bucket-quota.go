@@ -25,8 +25,8 @@ import (
 	"time"
 
 	"github.com/minio/madmin-go/v3"
-	"github.com/ergin84/minio/internal/cachevalue"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/cachevalue"
+	"github.com/ergin84/storvia/internal/logger"
 )
 
 // BucketQuotaSys - map of bucket and quota configuration.

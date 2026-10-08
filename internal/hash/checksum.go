@@ -31,9 +31,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ergin84/minio/internal/hash/sha256"
-	xhttp "github.com/ergin84/minio/internal/http"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/hash/sha256"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	"github.com/ergin84/storvia/internal/logger"
 )
 
 func hashLogIf(ctx context.Context, err error) {

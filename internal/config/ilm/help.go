@@ -17,7 +17,7 @@
 
 package ilm
 
-import "github.com/ergin84/minio/internal/config"
+import "github.com/ergin84/storvia/internal/config"
 
 const (
 	transitionWorkers = "transition_workers"

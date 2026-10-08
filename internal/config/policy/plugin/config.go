@@ -24,8 +24,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/ergin84/minio/internal/config"
-	xhttp "github.com/ergin84/minio/internal/http"
+	"github.com/ergin84/storvia/internal/config"
+	xhttp "github.com/ergin84/storvia/internal/http"
 	xnet "github.com/minio/pkg/v3/net"
 	"github.com/minio/pkg/v3/policy"
 )

@@ -25,8 +25,8 @@ import (
 	"strings"
 
 	"github.com/minio/madmin-go/v3/logger/log"
-	"github.com/ergin84/minio/internal/color"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/color"
+	"github.com/ergin84/storvia/internal/logger"
 )
 
 // Target implements loggerTarget to send log

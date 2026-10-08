@@ -23,9 +23,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/ergin84/minio/internal/logger/target/http"
-	"github.com/ergin84/minio/internal/logger/target/kafka"
-	types "github.com/ergin84/minio/internal/logger/target/loggertypes"
+	"github.com/ergin84/storvia/internal/logger/target/http"
+	"github.com/ergin84/storvia/internal/logger/target/kafka"
+	types "github.com/ergin84/storvia/internal/logger/target/loggertypes"
 )
 
 // Target is the entity that we will receive

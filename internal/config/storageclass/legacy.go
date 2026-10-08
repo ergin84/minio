@@ -18,7 +18,7 @@
 package storageclass
 
 import (
-	"github.com/ergin84/minio/internal/config"
+	"github.com/ergin84/storvia/internal/config"
 )
 
 // SetStorageClass - One time migration code needed, for migrating from older config to new for StorageClass.

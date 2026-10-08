@@ -26,7 +26,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ergin84/minio/internal/grid"
+	"github.com/ergin84/storvia/internal/grid"
 	xnet "github.com/minio/pkg/v3/net"
 )
 

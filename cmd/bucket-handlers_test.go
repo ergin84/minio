@@ -27,7 +27,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/ergin84/minio/internal/auth"
+	"github.com/ergin84/storvia/internal/auth"
 )
 
 // Wrapper for calling RemoveBucket HTTP handler tests for both Erasure multiple disks and single node setup.

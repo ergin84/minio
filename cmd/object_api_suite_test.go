@@ -29,7 +29,7 @@ import (
 	"time"
 
 	"github.com/dustin/go-humanize"
-	"github.com/ergin84/minio/internal/kms"
+	"github.com/ergin84/storvia/internal/kms"
 )
 
 // Return pointer to testOneByteReadEOF{}

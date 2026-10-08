@@ -23,7 +23,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/ergin84/minio/internal/bucket/lifecycle"
+	"github.com/ergin84/storvia/internal/bucket/lifecycle"
 )
 
 func (x xlMetaV2) listFreeVersions(volume, path string) ([]FileInfo, error) {

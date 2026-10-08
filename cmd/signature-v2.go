@@ -29,9 +29,9 @@ import (
 	"strconv"
 	"strings"
 
-	xhttp "github.com/ergin84/minio/internal/http"
+	xhttp "github.com/ergin84/storvia/internal/http"
 
-	"github.com/ergin84/minio/internal/auth"
+	"github.com/ergin84/storvia/internal/auth"
 )
 
 // Whitelist resource list that will be used in query string for signature-V2 calculation.

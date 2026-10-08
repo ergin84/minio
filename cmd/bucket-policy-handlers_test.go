@@ -28,7 +28,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/ergin84/minio/internal/auth"
+	"github.com/ergin84/storvia/internal/auth"
 	"github.com/minio/pkg/v3/policy"
 	"github.com/minio/pkg/v3/policy/condition"
 )

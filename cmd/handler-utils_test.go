@@ -28,7 +28,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/ergin84/minio/internal/config"
+	"github.com/ergin84/storvia/internal/config"
 )
 
 // Tests validate bucket LocationConstraint.

@@ -26,11 +26,11 @@ import (
 	"io"
 
 	"github.com/minio/highwayhash"
-	"github.com/ergin84/minio/internal/hash/sha256"
+	"github.com/ergin84/storvia/internal/hash/sha256"
 	"golang.org/x/crypto/blake2b"
 
-	xioutil "github.com/ergin84/minio/internal/ioutil"
-	"github.com/ergin84/minio/internal/logger"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
+	"github.com/ergin84/storvia/internal/logger"
 )
 
 // magic HH-256 key as HH-256 hash of the first 100 decimals of π as utf-8 string with a zero key.

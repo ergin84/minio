@@ -20,7 +20,7 @@ package cmd
 import (
 	"strconv"
 
-	"github.com/ergin84/minio/internal/bucket/lifecycle"
+	"github.com/ergin84/storvia/internal/bucket/lifecycle"
 )
 
 //go:generate stringer -type lcEventSrc -trimprefix lcEventSrc_ $GOFILE

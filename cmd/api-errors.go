@@ -29,25 +29,25 @@ import (
 	"strings"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
-	"github.com/ergin84/minio/internal/ioutil"
+	"github.com/ergin84/storvia/internal/ioutil"
 	"google.golang.org/api/googleapi"
 
 	"github.com/minio/madmin-go/v3"
 	"github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/tags"
-	"github.com/ergin84/minio/internal/auth"
-	"github.com/ergin84/minio/internal/bucket/lifecycle"
-	"github.com/ergin84/minio/internal/bucket/replication"
-	"github.com/ergin84/minio/internal/config/dns"
-	"github.com/ergin84/minio/internal/crypto"
-	"github.com/ergin84/minio/internal/kms"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/auth"
+	"github.com/ergin84/storvia/internal/bucket/lifecycle"
+	"github.com/ergin84/storvia/internal/bucket/replication"
+	"github.com/ergin84/storvia/internal/config/dns"
+	"github.com/ergin84/storvia/internal/crypto"
+	"github.com/ergin84/storvia/internal/kms"
+	"github.com/ergin84/storvia/internal/logger"
 
-	objectlock "github.com/ergin84/minio/internal/bucket/object/lock"
-	"github.com/ergin84/minio/internal/bucket/versioning"
-	levent "github.com/ergin84/minio/internal/config/lambda/event"
-	"github.com/ergin84/minio/internal/event"
-	"github.com/ergin84/minio/internal/hash"
+	objectlock "github.com/ergin84/storvia/internal/bucket/object/lock"
+	"github.com/ergin84/storvia/internal/bucket/versioning"
+	levent "github.com/ergin84/storvia/internal/config/lambda/event"
+	"github.com/ergin84/storvia/internal/event"
+	"github.com/ergin84/storvia/internal/hash"
 	"github.com/minio/pkg/v3/policy"
 )
 
@@ -281,7 +281,7 @@ const (
 	ErrInvalidStorageClass
 	ErrBackendDown
 	// Add new extended error codes here.
-	// Please open a https://github.com/ergin84/minio/issues before adding
+	// Please open a https://github.com/ergin84/storvia/issues before adding
 	// new error codes here.
 
 	ErrMalformedJSON

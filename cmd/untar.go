@@ -36,7 +36,7 @@ import (
 	"github.com/klauspost/compress/s2"
 	"github.com/klauspost/compress/zstd"
 	gzip "github.com/klauspost/pgzip"
-	xioutil "github.com/ergin84/minio/internal/ioutil"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
 	"github.com/pierrec/lz4/v4"
 )
 

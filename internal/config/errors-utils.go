@@ -23,7 +23,7 @@ import (
 	"net"
 	"syscall"
 
-	"github.com/ergin84/minio/internal/color"
+	"github.com/ergin84/storvia/internal/color"
 )
 
 // Err is a structure which contains all information

@@ -25,7 +25,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/ergin84/minio/internal/dsync"
+	"github.com/ergin84/storvia/internal/dsync"
 )
 
 func TestLocalLockerExpire(t *testing.T) {

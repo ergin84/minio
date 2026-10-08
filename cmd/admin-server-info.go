@@ -28,8 +28,8 @@ import (
 	"time"
 
 	"github.com/minio/madmin-go/v3"
-	"github.com/ergin84/minio/internal/config"
-	"github.com/ergin84/minio/internal/kms"
+	"github.com/ergin84/storvia/internal/config"
+	"github.com/ergin84/storvia/internal/kms"
 	xnet "github.com/minio/pkg/v3/net"
 )
 

@@ -30,7 +30,7 @@ import (
 
 	"github.com/minio/madmin-go/v3"
 	"github.com/minio/minio-go/v7/pkg/set"
-	"github.com/ergin84/minio/internal/auth"
+	"github.com/ergin84/storvia/internal/auth"
 	"github.com/minio/pkg/v3/env"
 )
 

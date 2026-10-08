@@ -27,11 +27,11 @@ import (
 	"sync"
 
 	"github.com/dustin/go-humanize"
-	"github.com/ergin84/minio/internal/color"
-	"github.com/ergin84/minio/internal/config"
-	"github.com/ergin84/minio/internal/config/storageclass"
-	xioutil "github.com/ergin84/minio/internal/ioutil"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/color"
+	"github.com/ergin84/storvia/internal/config"
+	"github.com/ergin84/storvia/internal/config/storageclass"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
+	"github.com/ergin84/storvia/internal/logger"
 	"github.com/minio/pkg/v3/sync/errgroup"
 )
 

@@ -34,9 +34,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	xhttp "github.com/ergin84/minio/internal/http"
-	"github.com/ergin84/minio/internal/logger"
-	"github.com/ergin84/minio/internal/mcontext"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	"github.com/ergin84/storvia/internal/logger"
+	"github.com/ergin84/storvia/internal/mcontext"
 	xnet "github.com/minio/pkg/v3/net"
 )
 

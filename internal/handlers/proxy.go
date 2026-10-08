@@ -27,7 +27,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/ergin84/minio/internal/config"
+	"github.com/ergin84/storvia/internal/config"
 	"github.com/minio/pkg/v3/env"
 )
 

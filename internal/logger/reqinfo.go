@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/ergin84/minio/internal/auth"
+	"github.com/ergin84/storvia/internal/auth"
 )
 
 // Key used for Get/SetReqInfo

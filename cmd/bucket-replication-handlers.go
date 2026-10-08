@@ -29,10 +29,10 @@ import (
 	"time"
 
 	"github.com/minio/minio-go/v7"
-	objectlock "github.com/ergin84/minio/internal/bucket/object/lock"
-	"github.com/ergin84/minio/internal/bucket/replication"
-	xhttp "github.com/ergin84/minio/internal/http"
-	"github.com/ergin84/minio/internal/logger"
+	objectlock "github.com/ergin84/storvia/internal/bucket/object/lock"
+	"github.com/ergin84/storvia/internal/bucket/replication"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	"github.com/ergin84/storvia/internal/logger"
 	"github.com/minio/mux"
 	"github.com/minio/pkg/v3/policy"
 )

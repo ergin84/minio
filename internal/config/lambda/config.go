@@ -17,7 +17,7 @@
 
 package lambda
 
-import "github.com/ergin84/minio/internal/event/target"
+import "github.com/ergin84/storvia/internal/event/target"
 
 // Config - lambda target configuration structure, holds
 // information about various lambda targets.

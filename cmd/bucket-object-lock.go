@@ -23,11 +23,11 @@ import (
 	"math"
 	"net/http"
 
-	"github.com/ergin84/minio/internal/auth"
-	objectlock "github.com/ergin84/minio/internal/bucket/object/lock"
-	"github.com/ergin84/minio/internal/bucket/replication"
-	xhttp "github.com/ergin84/minio/internal/http"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/auth"
+	objectlock "github.com/ergin84/storvia/internal/bucket/object/lock"
+	"github.com/ergin84/storvia/internal/bucket/replication"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	"github.com/ergin84/storvia/internal/logger"
 	"github.com/minio/pkg/v3/policy"
 )
 

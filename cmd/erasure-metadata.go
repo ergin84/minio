@@ -25,12 +25,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ergin84/minio/internal/amztime"
-	"github.com/ergin84/minio/internal/bucket/lifecycle"
-	"github.com/ergin84/minio/internal/bucket/replication"
-	"github.com/ergin84/minio/internal/crypto"
-	"github.com/ergin84/minio/internal/hash/sha256"
-	xhttp "github.com/ergin84/minio/internal/http"
+	"github.com/ergin84/storvia/internal/amztime"
+	"github.com/ergin84/storvia/internal/bucket/lifecycle"
+	"github.com/ergin84/storvia/internal/bucket/replication"
+	"github.com/ergin84/storvia/internal/crypto"
+	"github.com/ergin84/storvia/internal/hash/sha256"
+	xhttp "github.com/ergin84/storvia/internal/http"
 	"github.com/minio/pkg/v3/sync/errgroup"
 )
 

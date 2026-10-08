@@ -36,9 +36,9 @@ import (
 
 	"github.com/klauspost/compress/zip"
 	"github.com/minio/madmin-go/v3"
-	"github.com/ergin84/minio/internal/auth"
-	"github.com/ergin84/minio/internal/config/dns"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/auth"
+	"github.com/ergin84/storvia/internal/config/dns"
+	"github.com/ergin84/storvia/internal/logger"
 	"github.com/minio/mux"
 	xldap "github.com/minio/pkg/v3/ldap"
 	"github.com/minio/pkg/v3/policy"

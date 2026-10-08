@@ -24,7 +24,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/ergin84/minio/internal/s3select/sql"
+	"github.com/ergin84/storvia/internal/s3select/sql"
 )
 
 func TestNewReader(t *testing.T) {

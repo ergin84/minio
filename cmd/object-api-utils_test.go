@@ -33,9 +33,9 @@ import (
 	"testing"
 
 	"github.com/klauspost/compress/s2"
-	"github.com/ergin84/minio/internal/auth"
-	"github.com/ergin84/minio/internal/config/compress"
-	"github.com/ergin84/minio/internal/crypto"
+	"github.com/ergin84/storvia/internal/auth"
+	"github.com/ergin84/storvia/internal/config/compress"
+	"github.com/ergin84/storvia/internal/crypto"
 	"github.com/minio/pkg/v3/trie"
 )
 

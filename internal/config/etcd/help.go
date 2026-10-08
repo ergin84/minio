@@ -17,7 +17,7 @@
 
 package etcd
 
-import "github.com/ergin84/minio/internal/config"
+import "github.com/ergin84/storvia/internal/config"
 
 // etcd config documented in default config
 var (

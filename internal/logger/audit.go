@@ -25,10 +25,10 @@ import (
 	"time"
 
 	"github.com/minio/madmin-go/v3/logger/audit"
-	internalAudit "github.com/ergin84/minio/internal/logger/message/audit"
-	"github.com/ergin84/minio/internal/mcontext"
+	internalAudit "github.com/ergin84/storvia/internal/logger/message/audit"
+	"github.com/ergin84/storvia/internal/mcontext"
 
-	xhttp "github.com/ergin84/minio/internal/http"
+	xhttp "github.com/ergin84/storvia/internal/http"
 )
 
 const contextAuditKey = contextKeyType("audit-entry")

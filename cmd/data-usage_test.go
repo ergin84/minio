@@ -28,7 +28,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ergin84/minio/internal/cachevalue"
+	"github.com/ergin84/storvia/internal/cachevalue"
 )
 
 type usageTestFile struct {

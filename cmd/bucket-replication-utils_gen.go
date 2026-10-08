@@ -3,7 +3,7 @@
 package cmd
 
 import (
-	"github.com/ergin84/minio/internal/bucket/replication"
+	"github.com/ergin84/storvia/internal/bucket/replication"
 	"github.com/tinylib/msgp/msgp"
 )
 

@@ -20,7 +20,7 @@ package cmd
 import (
 	"net/http"
 
-	"github.com/ergin84/minio/internal/grid"
+	"github.com/ergin84/storvia/internal/grid"
 	"github.com/minio/mux"
 )
 

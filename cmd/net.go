@@ -26,8 +26,8 @@ import (
 	"strings"
 
 	"github.com/minio/minio-go/v7/pkg/set"
-	"github.com/ergin84/minio/internal/config"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/config"
+	"github.com/ergin84/storvia/internal/logger"
 	xnet "github.com/minio/pkg/v3/net"
 )
 

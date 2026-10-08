@@ -25,7 +25,7 @@ import (
 	"strings"
 	"time"
 
-	xioutil "github.com/ergin84/minio/internal/ioutil"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
 )
 
 const (

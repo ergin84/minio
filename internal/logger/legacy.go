@@ -18,8 +18,8 @@
 package logger
 
 import (
-	"github.com/ergin84/minio/internal/config"
-	"github.com/ergin84/minio/internal/logger/target/http"
+	"github.com/ergin84/storvia/internal/config"
+	"github.com/ergin84/storvia/internal/logger/target/http"
 )
 
 // Legacy envs

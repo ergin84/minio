@@ -34,11 +34,11 @@ import (
 	"github.com/minio/mux"
 	"github.com/minio/pkg/v3/policy"
 
-	"github.com/ergin84/minio/internal/auth"
-	levent "github.com/ergin84/minio/internal/config/lambda/event"
-	"github.com/ergin84/minio/internal/hash/sha256"
-	xhttp "github.com/ergin84/minio/internal/http"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/auth"
+	levent "github.com/ergin84/storvia/internal/config/lambda/event"
+	"github.com/ergin84/storvia/internal/hash/sha256"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	"github.com/ergin84/storvia/internal/logger"
 )
 
 var getLambdaEventData = func(bucket, object string, cred auth.Credentials, r *http.Request) (levent.Event, error) {

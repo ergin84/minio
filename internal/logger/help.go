@@ -18,7 +18,7 @@
 package logger
 
 import (
-	"github.com/ergin84/minio/internal/config"
+	"github.com/ergin84/storvia/internal/config"
 )
 
 // Help template for logger http and audit

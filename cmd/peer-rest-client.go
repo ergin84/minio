@@ -31,11 +31,11 @@ import (
 	"time"
 
 	"github.com/minio/madmin-go/v3"
-	"github.com/ergin84/minio/internal/bucket/bandwidth"
-	"github.com/ergin84/minio/internal/grid"
-	xhttp "github.com/ergin84/minio/internal/http"
-	"github.com/ergin84/minio/internal/logger"
-	"github.com/ergin84/minio/internal/rest"
+	"github.com/ergin84/storvia/internal/bucket/bandwidth"
+	"github.com/ergin84/storvia/internal/grid"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	"github.com/ergin84/storvia/internal/logger"
+	"github.com/ergin84/storvia/internal/rest"
 	xnet "github.com/minio/pkg/v3/net"
 )
 

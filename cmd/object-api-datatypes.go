@@ -26,8 +26,8 @@ import (
 
 	"github.com/dustin/go-humanize"
 	"github.com/minio/madmin-go/v3"
-	"github.com/ergin84/minio/internal/bucket/replication"
-	"github.com/ergin84/minio/internal/hash"
+	"github.com/ergin84/storvia/internal/bucket/replication"
+	"github.com/ergin84/storvia/internal/hash"
 )
 
 //go:generate msgp -file $GOFILE -io=false -tests=false -unexported=false

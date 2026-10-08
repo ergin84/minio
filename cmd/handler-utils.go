@@ -28,11 +28,11 @@ import (
 	"sync/atomic"
 
 	"github.com/minio/madmin-go/v3"
-	"github.com/ergin84/minio/internal/auth"
-	"github.com/ergin84/minio/internal/handlers"
-	xhttp "github.com/ergin84/minio/internal/http"
-	"github.com/ergin84/minio/internal/logger"
-	"github.com/ergin84/minio/internal/mcontext"
+	"github.com/ergin84/storvia/internal/auth"
+	"github.com/ergin84/storvia/internal/handlers"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	"github.com/ergin84/storvia/internal/logger"
+	"github.com/ergin84/storvia/internal/mcontext"
 	xnet "github.com/minio/pkg/v3/net"
 )
 
@@ -397,7 +397,7 @@ func errorResponseHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodOptions {
 		return
 	}
-	desc := "Do not upgrade one server at a time - please follow the recommended guidelines mentioned here https://github.com/ergin84/minio#upgrading-minio for your environment"
+	desc := "Do not upgrade one server at a time - please follow the recommended guidelines mentioned here https://github.com/ergin84/storvia#upgrading-minio for your environment"
 	switch {
 	case strings.HasPrefix(r.URL.Path, peerRESTPrefix):
 		writeErrorResponseString(r.Context(), w, APIError{

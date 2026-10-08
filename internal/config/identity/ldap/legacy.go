@@ -18,7 +18,7 @@
 package ldap
 
 import (
-	"github.com/ergin84/minio/internal/config"
+	"github.com/ergin84/storvia/internal/config"
 )
 
 // LegacyConfig contains AD/LDAP server connectivity information from old config

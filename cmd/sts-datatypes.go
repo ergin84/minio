@@ -20,7 +20,7 @@ package cmd
 import (
 	"encoding/xml"
 
-	"github.com/ergin84/minio/internal/auth"
+	"github.com/ergin84/storvia/internal/auth"
 )
 
 // AssumedRoleUser - The identifiers for the temporary security credentials that

@@ -22,7 +22,7 @@ import (
 	"io/fs"
 	"os"
 
-	"github.com/ergin84/minio/internal/disk"
+	"github.com/ergin84/storvia/internal/disk"
 )
 
 var (

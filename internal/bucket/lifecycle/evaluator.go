@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"time"
 
-	objlock "github.com/ergin84/minio/internal/bucket/object/lock"
-	"github.com/ergin84/minio/internal/bucket/replication"
+	objlock "github.com/ergin84/storvia/internal/bucket/object/lock"
+	"github.com/ergin84/storvia/internal/bucket/replication"
 )
 
 // Evaluator - evaluates lifecycle policy on objects for the given lifecycle

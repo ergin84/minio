@@ -26,9 +26,9 @@ import (
 	"strings"
 
 	jsoniter "github.com/json-iterator/go"
-	xhttp "github.com/ergin84/minio/internal/http"
-	"github.com/ergin84/minio/internal/kms"
-	"github.com/ergin84/minio/internal/logger"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	"github.com/ergin84/storvia/internal/kms"
+	"github.com/ergin84/storvia/internal/logger"
 )
 
 type ssekms struct{}

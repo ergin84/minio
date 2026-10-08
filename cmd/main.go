@@ -30,8 +30,8 @@ import (
 	"time"
 
 	"github.com/minio/cli"
-	"github.com/ergin84/minio/internal/color"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/color"
+	"github.com/ergin84/storvia/internal/logger"
 	"github.com/minio/pkg/v3/console"
 	"github.com/minio/pkg/v3/env"
 	"github.com/minio/pkg/v3/trie"

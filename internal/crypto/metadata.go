@@ -18,7 +18,7 @@
 package crypto
 
 import (
-	xhttp "github.com/ergin84/minio/internal/http"
+	xhttp "github.com/ergin84/storvia/internal/http"
 )
 
 const (

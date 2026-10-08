@@ -28,10 +28,10 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/ergin84/minio/internal/auth"
-	"github.com/ergin84/minio/internal/crypto"
-	xhttp "github.com/ergin84/minio/internal/http"
-	xioutil "github.com/ergin84/minio/internal/ioutil"
+	"github.com/ergin84/storvia/internal/auth"
+	"github.com/ergin84/storvia/internal/crypto"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
 	"github.com/minio/pkg/v3/policy"
 	"github.com/minio/zipindex"
 )

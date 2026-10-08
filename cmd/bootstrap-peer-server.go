@@ -32,8 +32,8 @@ import (
 	"time"
 
 	"github.com/minio/minio-go/v7/pkg/set"
-	"github.com/ergin84/minio/internal/grid"
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/grid"
+	"github.com/ergin84/storvia/internal/logger"
 	"github.com/minio/pkg/v3/env"
 )
 

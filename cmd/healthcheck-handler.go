@@ -23,8 +23,8 @@ import (
 	"strconv"
 	"time"
 
-	xhttp "github.com/ergin84/minio/internal/http"
-	"github.com/ergin84/minio/internal/kms"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	"github.com/ergin84/storvia/internal/kms"
 )
 
 const unavailable = "offline"

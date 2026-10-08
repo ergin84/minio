@@ -20,7 +20,7 @@ package cmd
 import (
 	"testing"
 
-	"github.com/ergin84/minio/internal/bucket/replication"
+	"github.com/ergin84/storvia/internal/bucket/replication"
 )
 
 var replicatedInfosTests = []struct {

@@ -29,8 +29,8 @@ import (
 	"time"
 
 	"github.com/minio/madmin-go/v3"
-	xioutil "github.com/ergin84/minio/internal/ioutil"
-	"github.com/ergin84/minio/internal/logger"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
+	"github.com/ergin84/storvia/internal/logger"
 )
 
 // healStatusSummary - overall short summary of a healing sequence

@@ -20,7 +20,7 @@ package cmd
 import (
 	"context"
 
-	"github.com/ergin84/minio/internal/rest"
+	"github.com/ergin84/storvia/internal/rest"
 )
 
 const (

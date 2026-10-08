@@ -25,9 +25,9 @@ import (
 	"path"
 	"strings"
 
-	xhttp "github.com/ergin84/minio/internal/http"
-	"github.com/ergin84/minio/internal/kms"
-	"github.com/ergin84/minio/internal/logger"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	"github.com/ergin84/storvia/internal/kms"
+	"github.com/ergin84/storvia/internal/logger"
 )
 
 type sses3 struct{}

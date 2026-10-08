@@ -23,7 +23,7 @@ import (
 	"encoding/base64"
 	"net/http"
 
-	xhttp "github.com/ergin84/minio/internal/http"
+	xhttp "github.com/ergin84/storvia/internal/http"
 )
 
 // RemoveSensitiveHeaders removes confidential encryption

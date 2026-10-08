@@ -33,11 +33,11 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/ergin84/minio/internal/event"
-	xhttp "github.com/ergin84/minio/internal/http"
-	"github.com/ergin84/minio/internal/logger"
-	"github.com/ergin84/minio/internal/once"
-	"github.com/ergin84/minio/internal/store"
+	"github.com/ergin84/storvia/internal/event"
+	xhttp "github.com/ergin84/storvia/internal/http"
+	"github.com/ergin84/storvia/internal/logger"
+	"github.com/ergin84/storvia/internal/once"
+	"github.com/ergin84/storvia/internal/store"
 	"github.com/minio/pkg/v3/certs"
 	xnet "github.com/minio/pkg/v3/net"
 )

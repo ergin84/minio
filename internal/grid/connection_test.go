@@ -25,7 +25,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ergin84/minio/internal/logger/target/testlogger"
+	"github.com/ergin84/storvia/internal/logger/target/testlogger"
 )
 
 func TestDisconnect(t *testing.T) {

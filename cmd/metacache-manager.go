@@ -24,7 +24,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/storvia/internal/logger"
 )
 
 // localMetacacheMgr is the *local* manager for this peer.

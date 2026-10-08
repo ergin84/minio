@@ -20,7 +20,7 @@ package compress
 import (
 	"strings"
 
-	"github.com/ergin84/minio/internal/config"
+	"github.com/ergin84/storvia/internal/config"
 )
 
 // Legacy envs.

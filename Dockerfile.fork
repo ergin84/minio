@@ -14,10 +14,10 @@ RUN SHORT_COMMIT=$(echo "${COMMIT}" | cut -c1-12) && \
     CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} \
     go build -tags kqueue -trimpath \
     -ldflags "-s -w \
-      -X github.com/ergin84/minio/cmd.Version=${VERSION} \
-      -X github.com/ergin84/minio/cmd.ReleaseTag=${VERSION} \
-      -X github.com/ergin84/minio/cmd.CommitID=${COMMIT} \
-      -X github.com/ergin84/minio/cmd.ShortCommitID=${SHORT_COMMIT}" \
+      -X github.com/ergin84/storvia/cmd.Version=${VERSION} \
+      -X github.com/ergin84/storvia/cmd.ReleaseTag=${VERSION} \
+      -X github.com/ergin84/storvia/cmd.CommitID=${COMMIT} \
+      -X github.com/ergin84/storvia/cmd.ShortCommitID=${SHORT_COMMIT}" \
     -o minio .
 
 FROM debian:bookworm-slim

@@ -25,7 +25,7 @@ import (
 	"io"
 	"testing"
 
-	"github.com/ergin84/minio/internal/ioutil"
+	"github.com/ergin84/storvia/internal/ioutil"
 )
 
 // Tests functions like Size(), MD5*(), SHA256*()

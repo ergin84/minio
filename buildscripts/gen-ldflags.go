@@ -33,13 +33,13 @@ func genLDFlags(version string) string {
 	releaseTag, date := releaseTag(version)
 	copyrightYear := strconv.Itoa(date.Year())
 	ldflagsStr := "-s -w"
-	ldflagsStr += " -X github.com/ergin84/minio/cmd.Version=" + version
-	ldflagsStr += " -X github.com/ergin84/minio/cmd.CopyrightYear=" + copyrightYear
-	ldflagsStr += " -X github.com/ergin84/minio/cmd.ReleaseTag=" + releaseTag
-	ldflagsStr += " -X github.com/ergin84/minio/cmd.CommitID=" + commitID()
-	ldflagsStr += " -X github.com/ergin84/minio/cmd.ShortCommitID=" + commitID()[:12]
-	ldflagsStr += " -X github.com/ergin84/minio/cmd.GOPATH=" + os.Getenv("GOPATH")
-	ldflagsStr += " -X github.com/ergin84/minio/cmd.GOROOT=" + os.Getenv("GOROOT")
+	ldflagsStr += " -X github.com/ergin84/storvia/cmd.Version=" + version
+	ldflagsStr += " -X github.com/ergin84/storvia/cmd.CopyrightYear=" + copyrightYear
+	ldflagsStr += " -X github.com/ergin84/storvia/cmd.ReleaseTag=" + releaseTag
+	ldflagsStr += " -X github.com/ergin84/storvia/cmd.CommitID=" + commitID()
+	ldflagsStr += " -X github.com/ergin84/storvia/cmd.ShortCommitID=" + commitID()[:12]
+	ldflagsStr += " -X github.com/ergin84/storvia/cmd.GOPATH=" + os.Getenv("GOPATH")
+	ldflagsStr += " -X github.com/ergin84/storvia/cmd.GOROOT=" + os.Getenv("GOROOT")
 	return ldflagsStr
 }
 

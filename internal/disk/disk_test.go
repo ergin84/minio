@@ -23,7 +23,7 @@ package disk_test
 import (
 	"testing"
 
-	"github.com/ergin84/minio/internal/disk"
+	"github.com/ergin84/storvia/internal/disk"
 )
 
 func TestFree(t *testing.T) {

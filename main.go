@@ -15,7 +15,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package main // import "github.com/ergin84/minio"
+package main // import "github.com/ergin84/storvia"
 
 //go:generate go install tool
 
@@ -23,9 +23,9 @@ import (
 	"os"
 
 	// MUST be first import.
-	_ "github.com/ergin84/minio/internal/init"
+	_ "github.com/ergin84/storvia/internal/init"
 
-	minio "github.com/ergin84/minio/cmd"
+	minio "github.com/ergin84/storvia/cmd"
 )
 
 func main() {

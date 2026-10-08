@@ -29,9 +29,9 @@ import (
 	"github.com/minio/pkg/v3/env"
 	xnet "github.com/minio/pkg/v3/net"
 
-	"github.com/ergin84/minio/internal/config"
-	"github.com/ergin84/minio/internal/logger/target/http"
-	"github.com/ergin84/minio/internal/logger/target/kafka"
+	"github.com/ergin84/storvia/internal/config"
+	"github.com/ergin84/storvia/internal/logger/target/http"
+	"github.com/ergin84/storvia/internal/logger/target/kafka"
 )
 
 // Console logger target

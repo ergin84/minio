@@ -20,7 +20,7 @@ package cmd
 import (
 	"sync"
 
-	"github.com/ergin84/minio/internal/config/ilm"
+	"github.com/ergin84/storvia/internal/config/ilm"
 )
 
 var globalILMConfig = ilmConfig{

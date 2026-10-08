@@ -20,9 +20,9 @@ package cmd
 import (
 	"time"
 
-	"github.com/ergin84/minio/internal/crypto"
-	"github.com/ergin84/minio/internal/grid"
-	xioutil "github.com/ergin84/minio/internal/ioutil"
+	"github.com/ergin84/storvia/internal/crypto"
+	"github.com/ergin84/storvia/internal/grid"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
 )
 
 //msgp:clearomitted

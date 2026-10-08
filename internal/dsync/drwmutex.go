@@ -27,8 +27,8 @@ import (
 	"sync"
 	"time"
 
-	xioutil "github.com/ergin84/minio/internal/ioutil"
-	"github.com/ergin84/minio/internal/mcontext"
+	xioutil "github.com/ergin84/storvia/internal/ioutil"
+	"github.com/ergin84/storvia/internal/mcontext"
 	"github.com/minio/pkg/v3/console"
 	"github.com/minio/pkg/v3/env"
 )

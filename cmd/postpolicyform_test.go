@@ -25,7 +25,7 @@ import (
 	"testing"
 
 	minio "github.com/minio/minio-go/v7"
-	xhttp "github.com/ergin84/minio/internal/http"
+	xhttp "github.com/ergin84/storvia/internal/http"
 )
 
 func TestParsePostPolicyForm(t *testing.T) {

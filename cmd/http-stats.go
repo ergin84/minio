@@ -23,7 +23,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	xhttp "github.com/ergin84/minio/internal/http"
+	xhttp "github.com/ergin84/storvia/internal/http"
 	"github.com/prometheus/client_golang/prometheus"
 )
 

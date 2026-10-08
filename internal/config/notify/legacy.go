@@ -22,8 +22,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ergin84/minio/internal/config"
-	"github.com/ergin84/minio/internal/event/target"
+	"github.com/ergin84/storvia/internal/config"
+	"github.com/ergin84/storvia/internal/event/target"
 )
 
 // SetNotifyKafka - helper for config migration from older config.

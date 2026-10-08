@@ -25,9 +25,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/ergin84/minio/internal/crypto"
-	"github.com/ergin84/minio/internal/grid"
-	xhttp "github.com/ergin84/minio/internal/http"
+	"github.com/ergin84/storvia/internal/crypto"
+	"github.com/ergin84/storvia/internal/grid"
+	xhttp "github.com/ergin84/storvia/internal/http"
 )
 
 // Tests request guess function for net/rpc requests.

@@ -26,10 +26,10 @@ import (
 
 	"github.com/minio/madmin-go/v3"
 	"github.com/minio/madmin-go/v3/logger/log"
-	"github.com/ergin84/minio/internal/logger"
-	"github.com/ergin84/minio/internal/logger/target/console"
-	types "github.com/ergin84/minio/internal/logger/target/loggertypes"
-	"github.com/ergin84/minio/internal/pubsub"
+	"github.com/ergin84/storvia/internal/logger"
+	"github.com/ergin84/storvia/internal/logger/target/console"
+	types "github.com/ergin84/storvia/internal/logger/target/loggertypes"
+	"github.com/ergin84/storvia/internal/pubsub"
 	xnet "github.com/minio/pkg/v3/net"
 )
 

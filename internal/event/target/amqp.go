@@ -30,10 +30,10 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/ergin84/minio/internal/event"
-	"github.com/ergin84/minio/internal/logger"
-	"github.com/ergin84/minio/internal/once"
-	"github.com/ergin84/minio/internal/store"
+	"github.com/ergin84/storvia/internal/event"
+	"github.com/ergin84/storvia/internal/logger"
+	"github.com/ergin84/storvia/internal/once"
+	"github.com/ergin84/storvia/internal/store"
 	xnet "github.com/minio/pkg/v3/net"
 	"github.com/rabbitmq/amqp091-go"
 )
