@@ -1,0 +1,33 @@
+{{- if and (.Values.networkPolicy.enabled) (eq .Values.networkPolicy.flavor "cilium") }}
+kind: CiliumNetworkPolicy
+apiVersion: cilium.io/v2
+metadata:
+  name: {{ template "storvia.fullname" . }}
+  labels:
+    app: {{ template "storvia.name" . }}
+    chart: {{ template "storvia.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  endpointSelector:
+    matchLabels:
+      app: {{ template "storvia.name" . }}
+      release: {{ .Release.Name }}
+  ingress:
+  - toPorts:
+    - ports:
+      - port: "{{ .Values.minioAPIPort }}"
+        protocol: TCP
+      - port: "{{ .Values.minioConsolePort }}"
+        protocol: TCP
+    {{- if not .Values.networkPolicy.allowExternal }}
+    fromEndpoints:
+    - matchLabels:
+        {{ template "storvia.name" . }}-client: "true"
+    {{- end }}
+  egress:
+  {{- range $entity := .Values.networkPolicy.egressEntities }}
+  - toEntities:
+    - {{ $entity }}
+  {{- end }}
+{{- end }}

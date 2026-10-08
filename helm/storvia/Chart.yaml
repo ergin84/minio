@@ -1,0 +1,19 @@
+apiVersion: v1
+description: Open Source S3-Compatible Object Storage
+name: storvia
+version: 5.5.0
+appVersion: RELEASE.2024-12-18T13-15-44Z
+keywords:
+  - storvia
+  - minio
+  - storage
+  - object-storage
+  - s3
+  - cluster
+home: https://github.com/ergin84/storvia
+icon: https://raw.githubusercontent.com/ergin84/storvia/master/.github/logo.png
+sources:
+- https://github.com/ergin84/storvia
+maintainers:
+- name: ergin84
+  email: erginmehmeti@gmail.com
