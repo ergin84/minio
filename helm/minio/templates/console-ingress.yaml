@@ -2,6 +2,7 @@
 {{- $fullName := printf "%s-console" (include "minio.fullname" .) -}}
 {{- $servicePort := .Values.consoleService.port -}}
 {{- $ingressPath := .Values.consoleIngress.path -}}
+{{- $ingressPathType := .Values.consoleIngress.pathType -}}
 apiVersion: {{ template "minio.consoleIngress.apiVersion" . }}
 kind: Ingress
 metadata:
@@ -32,16 +33,17 @@ spec:
     {{- end }}
   {{- end }}
   rules:
+    {{- $domain := include "minio.domain" . -}}
     {{- range .Values.consoleIngress.hosts }}
     - http:
         paths:
           - path: {{ $ingressPath }}
             {{- if semverCompare ">=1.19-0" $.Capabilities.KubeVersion.GitVersion }}
-            pathType: Prefix
+            pathType: {{ $ingressPathType }}
             backend:
               service:
                 name: {{ $fullName }}
-                port: 
+                port:
                   number: {{ $servicePort }}
             {{- else }}
             backend:
@@ -49,7 +51,9 @@ spec:
               servicePort: {{ $servicePort }}
             {{- end }}
       {{- if . }}
-      host: {{ tpl . $ | quote }}
+        {{- $host := . }}
+        {{- $hostWithDomain := printf "%s%s" $host $domain }}
+        host: {{ $hostWithDomain | quote }}
       {{- end }}
     {{- end }}
 {{- end }}

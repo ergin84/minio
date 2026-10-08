@@ -9,8 +9,8 @@
 {{ $subPath := .Values.persistence.subPath }}
 {{ $penabled := .Values.persistence.enabled }}
 {{ $accessMode := .Values.persistence.accessMode }}
-{{ $storageClass := .Values.persistence.storageClass }}
 {{ $psize := .Values.persistence.size }}
+{{ $isOpenshift := or .Values.openshift (and (.Capabilities.APIVersions.Has "security.openshift.io/v1") (ne .Values.openshift false)) }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -83,9 +83,15 @@ spec:
       {{- end }}
       {{- if and .Values.securityContext.enabled .Values.persistence.enabled }}
       securityContext:
-        {{- omit .Values.securityContext "enabled" | toYaml | nindent 8 }}
-      {{- end }}
-      {{- if .Values.serviceAccount.create }}
+        fsGroupChangePolicy: {{ .Values.securityContext.fsGroupChangePolicy }}
+        {{- if .Values.securityContext.runAsNonRoot }}
+        runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
+        {{- end }}
+        {{- if not $isOpenshift }}
+        runAsUser: {{ .Values.securityContext.runAsUser }}
+        runAsGroup: {{ .Values.securityContext.runAsGroup }}
+        fsGroup: {{ .Values.securityContext.fsGroup }}
+        {{- end }}
       serviceAccountName: {{ .Values.serviceAccount.name }}
       {{- end }}
       containers:
@@ -95,7 +101,7 @@ spec:
           command: [
             "/bin/sh",
             "-ce",
-            "/usr/bin/docker-entrypoint.sh minio server {{- range $i := until $poolCount }}{{ $factor := mul $i $nodeCount }}{{ $endIndex := add $factor $nodeCount }}{{ $beginIndex := mul $i $nodeCount }} {{ $scheme }}://{{ template `minio.fullname` $ }}-{{ `{` }}{{ $beginIndex }}...{{ sub $endIndex 1 }}{{ `}`}}.{{ template `minio.fullname` $ }}-svc.{{ $.Release.Namespace }}.svc{{if (gt $drivesPerNode 1)}}{{ $bucketRoot }}-{{ `{` }}0...{{ sub $drivesPerNode 1 }}{{ `}` }}{{ else }}{{ $bucketRoot }}{{end }}{{- end }} -S {{ .Values.certsPath }} --address :{{ .Values.minioAPIPort }} --console-address :{{ .Values.minioConsolePort }} {{- template `minio.extraArgs` . }}"
+            "/usr/bin/docker-entrypoint.sh minio server {{- range $i := until $poolCount }}{{ $factor := mul $i $nodeCount }}{{ $endIndex := add $factor $nodeCount }}{{ $beginIndex := mul $i $nodeCount }}  {{ $scheme }}://{{ template `minio.fullname` $ }}-{{ if lt ($beginIndex) (sub $endIndex 1) }}{{ `{` }}{{ $beginIndex }}...{{ sub $endIndex 1 }}{{ `}`}}{{ else }}{{ $beginIndex }}{{ end }}.{{ template `minio.fullname` $ }}-svc.{{ $.Release.Namespace }}.svc.{{ $.Values.clusterDomain }}{{if (gt $drivesPerNode 1)}}{{ $bucketRoot }}-{{ `{` }}0...{{ sub $drivesPerNode 1 }}{{ `}` }}{{ else }}{{ $bucketRoot }}{{end }}{{- end }} -S {{ .Values.certsPath }} --address :{{ .Values.minioAPIPort }} --console-address :{{ .Values.minioConsolePort }} {{- template `minio.extraArgs` . }}"
           ]
           volumeMounts:
             {{- if $penabled }}
@@ -191,6 +197,44 @@ spec:
           securityContext: {{ toYaml . | nindent 12}}
           {{- end }}
           {{- end }}
+          {{- if .Values.customLivenessProbe }}
+          livenessProbe: {{- toYaml $.Values.customLivenessProbe | nindent 12 }}
+          {{- else if .Values.livenessProbe.enabled }}
+          livenessProbe:
+            httpGet:
+              path: /minio/health/live
+              port: {{ .Values.minioAPIPort }}
+              scheme: {{ ternary "HTTPS" "HTTP" .Values.tls.enabled | quote }}
+            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.livenessProbe.successThreshold }}
+            failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
+          {{- end }}
+          {{- if .Values.customReadinessProbe }}
+          readinessProbe: {{- toYaml $.Values.customReadinessProbe | nindent 12 }}
+          {{- else if .Values.readinessProbe.enabled }}
+          readinessProbe:
+            tcpSocket:
+              port: {{ .Values.minioAPIPort }}
+            initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.readinessProbe.successThreshold }}
+            failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
+          {{- end }}
+          {{- if .Values.customStartupProbe }}
+          startupProbe: {{- toYaml .Values.customStartupProbe | nindent 12 }}
+          {{- else if .Values.startupProbe.enabled }}
+          startupProbe:
+            tcpSocket:
+              port: {{ .Values.minioAPIPort }}
+            initialDelaySeconds: {{ .Values.startupProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.startupProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.startupProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.startupProbe.successThreshold }}
+            failureThreshold: {{ .Values.startupProbe.failureThreshold }}
+          {{- end }}
         {{- with .Values.extraContainers }}
           {{- if eq (typeOf .) "string" }}
             {{- tpl . $ | nindent 8 }}
@@ -239,12 +283,10 @@ spec:
         {{- end }}
       spec:
         accessModes: [ {{ $accessMode | quote }} ]
-        {{- if $storageClass }}
-        storageClassName: {{ $storageClass }}
-        {{- end }}
         resources:
           requests:
             storage: {{ $psize }}
+        {{- include "minio.persistence.storageClass" ( dict "persistence" $.Values.persistence "global" $.Values.global) | nindent 8 }}
     {{- end }}
     {{- else }}
     - apiVersion: v1
@@ -256,12 +298,10 @@ spec:
         {{- end }}
       spec:
         accessModes: [ {{ $accessMode | quote }} ]
-        {{- if $storageClass }}
-        storageClassName: {{ $storageClass }}
-        {{- end }}
         resources:
           requests:
             storage: {{ $psize }}
+        {{- include "minio.persistence.storageClass" ( dict "persistence" .Values.persistence "global" .Values.global) | nindent 8 }}
     {{- end }}
   {{- end }}
 {{- end }}
