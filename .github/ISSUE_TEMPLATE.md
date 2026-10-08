@@ -8,9 +8,7 @@ assignees: ''
 ---
 
 ## NOTE
-All GitHub issues are addressed on a best-effort basis at MinIO's sole discretion. There are no Service Level Agreements (SLA) or Objectives (SLO). Remember our [Code of Conduct](https://github.com/minio/minio/blob/master/code_of_conduct.md) when engaging with MinIO Engineers and the larger community.
-
-For urgent issues (e.g. production down, etc.), subscribe to [SUBNET](https://min.io/pricing?jmp=github) for direct to engineering support.
+All GitHub issues are addressed on a best-effort basis. There are no Service Level Agreements (SLA) or Objectives (SLO). Please follow our [Code of Conduct](https://github.com/ergin84/minio/blob/master/code_of_conduct.md) when engaging with maintainers and the community.
  
 <!--- Provide a general summary of the issue in the Title above -->
 
@@ -29,7 +27,7 @@ For urgent issues (e.g. production down, etc.), subscribe to [SUBNET](https://mi
 ## Steps to Reproduce (for bugs)
 <!--- Provide a link to a live example, or an unambiguous set of steps to -->
 <!--- reproduce this bug. Include code to reproduce, if relevant -->
-<!--- and make sure you have followed https://github.com/minio/minio/tree/release/docs/debugging to capture relevant logs -->
+<!--- and make sure you have followed https://github.com/ergin84/minio/tree/master/docs/debugging to capture relevant logs -->
 
 1.
 2.

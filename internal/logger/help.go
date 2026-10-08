@@ -18,7 +18,7 @@
 package logger
 
 import (
-	"github.com/minio/minio/internal/config"
+	"github.com/ergin84/minio/internal/config"
 )
 
 // Help template for logger http and audit

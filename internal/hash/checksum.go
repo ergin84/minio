@@ -31,9 +31,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/minio/minio/internal/hash/sha256"
-	xhttp "github.com/minio/minio/internal/http"
-	"github.com/minio/minio/internal/logger"
+	"github.com/ergin84/minio/internal/hash/sha256"
+	xhttp "github.com/ergin84/minio/internal/http"
+	"github.com/ergin84/minio/internal/logger"
 )
 
 func hashLogIf(ctx context.Context, err error) {

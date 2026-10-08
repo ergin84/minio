@@ -18,15 +18,15 @@
 package cmd
 
 import (
-	"github.com/minio/minio/internal/auth"
-	"github.com/minio/minio/internal/config"
-	"github.com/minio/minio/internal/config/compress"
-	xldap "github.com/minio/minio/internal/config/identity/ldap"
-	"github.com/minio/minio/internal/config/identity/openid"
-	"github.com/minio/minio/internal/config/notify"
-	"github.com/minio/minio/internal/config/policy/opa"
-	"github.com/minio/minio/internal/config/storageclass"
-	"github.com/minio/minio/internal/logger"
+	"github.com/ergin84/minio/internal/auth"
+	"github.com/ergin84/minio/internal/config"
+	"github.com/ergin84/minio/internal/config/compress"
+	xldap "github.com/ergin84/minio/internal/config/identity/ldap"
+	"github.com/ergin84/minio/internal/config/identity/openid"
+	"github.com/ergin84/minio/internal/config/notify"
+	"github.com/ergin84/minio/internal/config/policy/opa"
+	"github.com/ergin84/minio/internal/config/storageclass"
+	"github.com/ergin84/minio/internal/logger"
 	"github.com/minio/pkg/v3/quick"
 )
 

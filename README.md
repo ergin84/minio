@@ -1,17 +1,16 @@
 > [!NOTE]
-> **THIS REPOSITORY IS NO LONGER MAINTAINED.**
->
-> **Alternatives:**
-> - **[AIStor Free](https://min.io/download)** — Full-featured, standalone edition for community use (free license)
-> - **[AIStor Enterprise](https://min.io/pricing)** — Distributed edition with commercial support
+> **This is a community-maintained fork of [minio/minio](https://github.com/minio/minio).**
+> The upstream project stopped active maintenance of the open-source edition and transitioned to a commercial product (AIStor).
+> This fork keeps the AGPLv3 community edition alive with security patches and bug fixes.
+> Issues and contributions are welcome at [ergin84/minio](https://github.com/ergin84/minio/issues).
 
 ---
 
 # MinIO Quickstart Guide
 
-[![Slack](https://slack.min.io/slack?type=svg)](https://slack.min.io) [![Docker Pulls](https://img.shields.io/docker/pulls/minio/minio.svg?maxAge=604800)](https://hub.docker.com/r/minio/minio/) [![license](https://img.shields.io/badge/license-AGPL%20V3-blue)](https://github.com/minio/minio/blob/master/LICENSE)
+[![Issues](https://img.shields.io/github/issues/ergin84/minio)](https://github.com/ergin84/minio/issues) [![Docker Pulls](https://img.shields.io/docker/pulls/minio/minio.svg?maxAge=604800)](https://hub.docker.com/r/minio/minio/) [![license](https://img.shields.io/badge/license-AGPL%20V3-blue)](https://github.com/ergin84/minio/blob/master/LICENSE)
 
-[![MinIO](https://raw.githubusercontent.com/minio/minio/master/.github/logo.svg?sanitize=true)](https://min.io)
+[![MinIO](https://raw.githubusercontent.com/minio/minio/master/.github/logo.svg?sanitize=true)](https://github.com/ergin84/minio)
 
 MinIO is a high-performance, S3-compatible object storage solution released under the GNU AGPL v3.0 license.
 Designed for speed and scalability, it powers AI/ML, analytics, and data-intensive workloads with industry-leading performance.
@@ -25,14 +24,11 @@ Use the [MinIO Documentation](https://github.com/minio/docs) project to build an
 
 ## MinIO is Open Source Software
 
-We designed MinIO as Open Source software for the Open Source software community. We encourage the community to remix, redesign, and reshare MinIO under the terms of the AGPLv3 license.
+MinIO is released under the GNU AGPLv3 license. The community is welcome to remix, redesign, and reshare MinIO under those terms.
 
-All usage of MinIO in your application stack requires validation against AGPLv3 obligations, which include but are not limited to the release of modified code to the community from which you have benefited. Any commercial/proprietary usage of the AGPLv3 software, including repackaging or reselling services/features, is done at your own risk.
+All usage in your application stack requires validation against AGPLv3 obligations, which include but are not limited to the release of modified source code to the community. Any commercial/proprietary usage is done at your own risk.
 
-The AGPLv3 provides no obligation by any party to support, maintain, or warranty the original or any modified work.
-All support is provided on a best-effort basis through Github and our [Slack](https://slack.min.io) channel, and any member of the community is welcome to contribute and assist others in their usage of the software.
-
-MinIO [AIStor](https://www.min.io/product/aistor) includes enterprise-grade support and licensing for workloads which require commercial or proprietary usage and production-level SLA/SLO-backed support. For more information, [reach out for a quote](https://min.io/pricing).
+Support is provided on a best-effort basis through [GitHub Issues](https://github.com/ergin84/minio/issues). All contributors are welcome.
 
 ## Source-Only Distribution
 
@@ -42,7 +38,7 @@ MinIO [AIStor](https://www.min.io/product/aistor) includes enterprise-grade supp
 
 To use MinIO community edition, you have two options:
 
-1. **Install from source** using `go install github.com/minio/minio@latest` (recommended)
+1. **Install from source** using `go install github.com/ergin84/minio@latest` (recommended)
 2. **Build a Docker image** from the provided Dockerfile
 
 See the sections below for detailed instructions on each method.
@@ -62,7 +58,7 @@ Use the following commands to compile and run a standalone MinIO server from sou
 If you do not have a working Golang environment, please follow [How to install Golang](https://golang.org/doc/install). Minimum version required is [go1.24](https://golang.org/dl/#stable)
 
 ```sh
-go install github.com/minio/minio@latest
+go install github.com/ergin84/minio@latest
 ```
 
 You can alternatively run `go build` and use the `GOOS` and `GOARCH` environment variables to control the OS and architecture target.
@@ -154,17 +150,17 @@ Follow the MinIO Client [Quickstart Guide](https://docs.min.io/community/minio-o
 
 ## Explore Further
 
-- [The MinIO documentation website](https://docs.min.io/community/minio-object-store/index.html)
-- [MinIO Erasure Code Overview](https://docs.min.io/community/minio-object-store/operations/concepts/erasure-coding.html)
-- [Use `mc` with MinIO Server](https://docs.min.io/community/minio-object-store/reference/minio-mc.html)
-- [Use `minio-go` SDK with MinIO Server](https://docs.min.io/enterprise/aistor-object-store/developers/sdk/go/)
+- [MinIO Erasure Code Overview](https://min.io/docs/minio/linux/operations/concepts/erasure-coding.html)
+- [Use `mc` with MinIO Server](https://min.io/docs/minio/linux/reference/minio-mc.html)
+- [Use `minio-go` SDK with MinIO Server](https://github.com/minio/minio-go)
 
-## Contribute to MinIO Project
+## Contribute
 
-Please follow MinIO [Contributor's Guide](https://github.com/minio/minio/blob/master/CONTRIBUTING.md) for guidance on making new contributions to the repository.
+Please follow the [Contributor's Guide](https://github.com/ergin84/minio/blob/master/CONTRIBUTING.md) for guidance on making new contributions to this repository.
+Issues and pull requests are welcome at [github.com/ergin84/minio](https://github.com/ergin84/minio).
 
 ## License
 
-- MinIO source is licensed under the [GNU AGPLv3](https://github.com/minio/minio/blob/master/LICENSE).
-- MinIO [documentation](https://github.com/minio/minio/tree/master/docs) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
-- [License Compliance](https://github.com/minio/minio/blob/master/COMPLIANCE.md)
+- Source is licensed under the [GNU AGPLv3](https://github.com/ergin84/minio/blob/master/LICENSE).
+- [Documentation](https://github.com/ergin84/minio/tree/master/docs) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+- [License Compliance](https://github.com/ergin84/minio/blob/master/COMPLIANCE.md)

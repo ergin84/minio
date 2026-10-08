@@ -18,7 +18,7 @@
 package opa
 
 import (
-	"github.com/minio/minio/internal/config"
+	"github.com/ergin84/minio/internal/config"
 )
 
 // Legacy OPA envs

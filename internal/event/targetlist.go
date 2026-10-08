@@ -25,8 +25,8 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/minio/minio/internal/logger"
-	"github.com/minio/minio/internal/store"
+	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/minio/internal/store"
 	"github.com/minio/pkg/v3/workers"
 )
 

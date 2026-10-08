@@ -28,7 +28,7 @@ import (
 	"syscall"
 	"unsafe"
 
-	"github.com/minio/minio/internal/bpool"
+	"github.com/ergin84/minio/internal/bpool"
 	"golang.org/x/sys/unix"
 )
 

@@ -24,8 +24,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/minio/minio/internal/crypto"
-	xhttp "github.com/minio/minio/internal/http"
+	"github.com/ergin84/minio/internal/crypto"
+	xhttp "github.com/ergin84/minio/internal/http"
 )
 
 const (

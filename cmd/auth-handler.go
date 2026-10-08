@@ -33,14 +33,14 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/minio/minio/internal/auth"
-	objectlock "github.com/minio/minio/internal/bucket/object/lock"
-	"github.com/minio/minio/internal/etag"
-	"github.com/minio/minio/internal/hash"
-	xhttp "github.com/minio/minio/internal/http"
-	xjwt "github.com/minio/minio/internal/jwt"
-	"github.com/minio/minio/internal/logger"
-	"github.com/minio/minio/internal/mcontext"
+	"github.com/ergin84/minio/internal/auth"
+	objectlock "github.com/ergin84/minio/internal/bucket/object/lock"
+	"github.com/ergin84/minio/internal/etag"
+	"github.com/ergin84/minio/internal/hash"
+	xhttp "github.com/ergin84/minio/internal/http"
+	xjwt "github.com/ergin84/minio/internal/jwt"
+	"github.com/ergin84/minio/internal/logger"
+	"github.com/ergin84/minio/internal/mcontext"
 	"github.com/minio/pkg/v3/policy"
 )
 

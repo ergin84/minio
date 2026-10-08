@@ -24,9 +24,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/minio/minio/internal/bpool"
-	"github.com/minio/minio/internal/hash/sha256"
-	xioutil "github.com/minio/minio/internal/ioutil"
+	"github.com/ergin84/minio/internal/bpool"
+	"github.com/ergin84/minio/internal/hash/sha256"
+	xioutil "github.com/ergin84/minio/internal/ioutil"
 	"github.com/tinylib/msgp/msgp"
 )
 
