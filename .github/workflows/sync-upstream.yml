@@ -1,0 +1,40 @@
+name: Sync upstream
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # daily at 06:00 UTC
+  workflow_dispatch:        # allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure git
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Fetch upstream
+        run: git remote add upstream https://github.com/minio/minio.git && git fetch upstream
+
+      - name: Check for new commits
+        id: check
+        run: |
+          COUNT=$(git rev-list HEAD..upstream/master --count)
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          echo "Upstream has $COUNT new commit(s)"
+
+      - name: Merge upstream into master
+        if: steps.check.outputs.count != '0'
+        run: |
+          git merge upstream/master --no-edit --ff-only || \
+          git merge upstream/master --no-edit -m "chore: sync upstream minio/minio"
+          git push origin master
