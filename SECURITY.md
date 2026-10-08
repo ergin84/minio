@@ -3,11 +3,11 @@
 ## Supported Versions
 
 Security updates are applied to the latest release of this fork.
-See [releases](https://github.com/ergin84/minio/releases) for the current version.
+See [releases](https://github.com/ergin84/storvia/releases) for the current version.
 
 ## Reporting a Vulnerability
 
-Security bugs in [ergin84/minio](https://github.com/ergin84/minio) should be reported by email to
+Security bugs in [ergin84/storvia](https://github.com/ergin84/storvia) should be reported by email to
 **erginmehmeti@gmail.com**. Your email will be acknowledged within 72 hours.
 
 Please provide a detailed explanation of the issue, including:
