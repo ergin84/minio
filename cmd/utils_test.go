@@ -250,7 +250,7 @@ func TestDumpRequest(t *testing.T) {
 	// Look for expected query values
 	expectedQuery := req.URL.Query()
 	expectedQuery.Set("X-Amz-Signature", "19b58080999df54b446fc97304eb8dda60d3df1812ae97f3e8783351bfd9781d")
-	expectedRequestURI := req.URL.Path + "?" + expectedQuery.Encode()
+	expectedRequestURI := "/?" + expectedQuery.Encode()
 	if !reflect.DeepEqual(res.RequestURI, expectedRequestURI) {
 		t.Fatalf("Expected %#v, got %#v", expectedRequestURI, res.RequestURI)
 	}
