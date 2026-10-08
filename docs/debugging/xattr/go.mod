@@ -1,8 +1,6 @@
 module github.com/minio/minio/docs/debugging/xattr
 
-go 1.21
-
-toolchain go1.24.8
+go 1.26.0
 
 require (
 	github.com/olekukonko/tablewriter v0.0.5
@@ -12,5 +10,5 @@ require (
 require (
 	github.com/mattn/go-runewidth v0.0.15 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
-	golang.org/x/sys v0.15.0 // indirect
+	golang.org/x/sys v0.48.0 // indirect
 )
