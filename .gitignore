@@ -29,7 +29,7 @@ inspect*.zip
 200M*
 hash-set
 minio.RELEASE*
-mc
+/mc
 nancy
 inspects/*
 .bin/
@@ -51,5 +51,5 @@ pprofgoparser
 reorder-disks
 s3-check-md5
 s3-verify
-xattr
+/xattr
 xl-meta
