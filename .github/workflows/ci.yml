@@ -29,12 +29,12 @@ jobs:
       - name: Build
         env:
           CGO_ENABLED: 0
-        run: go build -tags kqueue -trimpath ./...
+        run: go build -mod=vendor -tags kqueue -trimpath ./...
 
       - name: Unit tests
         env:
           CGO_ENABLED: 0
-        run: go test -tags kqueue -timeout 15m ./...
+        run: go test -mod=vendor -tags kqueue -timeout 15m ./...
 
   trivy:
     name: Trivy security scan

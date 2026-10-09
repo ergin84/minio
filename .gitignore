@@ -9,7 +9,7 @@ site/
 /.idea/
 /Minio.iml
 **/access.log
-vendor/
+# vendor/ is committed to lock the UI patch (see vendor/github.com/minio/console)
 .DS_Store
 *.syso
 coverage.txt
