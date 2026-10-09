@@ -51,6 +51,7 @@ jobs:
           output: trivy-results.sarif
           severity: CRITICAL,HIGH
           ignore-unfixed: true
+          trivy-config: trivy.yaml
           exit-code: 0   # set to 1 once baseline findings are addressed
 
       - name: Upload results to GitHub Security tab

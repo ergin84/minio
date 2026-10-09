@@ -1,0 +1,12 @@
+scan:
+  # yarn.lock files in vendor are npm build-time deps for the pre-built console
+  # bundle — they do not affect the runtime Go binary.
+  skip-files:
+    - "vendor/**/web-app/yarn.lock"
+    - "vendor/**/web-app/package-lock.json"
+
+  # Private key files in vendor are upstream test fixtures from minio/pkg and
+  # minio/selfupdate — they are not production secrets.
+  skip-dirs:
+    - "vendor/github.com/minio/pkg/v3/certs"
+    - "vendor/github.com/minio/selfupdate"
