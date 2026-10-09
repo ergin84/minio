@@ -757,7 +757,7 @@ github.com/minio/cli
 # github.com/minio/colorjson v1.0.8
 ## explicit; go 1.21
 github.com/minio/colorjson
-# github.com/minio/console v1.7.7-0.20250905210349-2017f33b26e1 => /home/ergin/storvia-console
+# github.com/minio/console v1.7.7-0.20250905210349-2017f33b26e1
 ## explicit; go 1.24.0
 github.com/minio/console/api
 github.com/minio/console/api/operations
@@ -1650,4 +1650,3 @@ gopkg.in/yaml.v2
 # gopkg.in/yaml.v3 v3.0.1
 ## explicit
 gopkg.in/yaml.v3
-# github.com/minio/console => /home/ergin/storvia-console
